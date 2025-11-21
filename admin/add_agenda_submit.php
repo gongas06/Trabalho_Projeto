@@ -1,0 +1,28 @@
+<?php
+require_once 'auth.php';
+require_once 'db.php';
+require_login();
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    die("Método inválido");
+}
+
+$stmt = $mysqli->prepare("
+    INSERT INTO agenda (equipa_casa, equipa_fora, data_jogo, hora_jogo, local_jogo)
+    VALUES (?, ?, ?, ?, ?)
+");
+
+$stmt->bind_param(
+    "sssss",
+    $_POST['equipa_casa'],
+    $_POST['equipa_fora'],
+    $_POST['data_jogo'],
+    $_POST['hora_jogo'],
+    $_POST['local_jogo']
+);
+
+$stmt->execute();
+$stmt->close();
+
+header("Location: agenda.php");
+exit;

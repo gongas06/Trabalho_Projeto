@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrinho</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar principal do site -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <!-- Logo / marca -->
+      <a class="navbar-brand" href="index.html"><strong>Pet friendly</strong></a>
+      <!-- Botão para menu colapsável em mobile -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Itens do menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <!-- Links para outras páginas -->
+        <li><a href="index.html">Início</a></li>
+        <li><a href="história.html">História</a></li>
+        <li><a href="Equipa.html">Equipa</a></li>
+        <li><a href="agenda.html">Agenda</a></li>
+        <li><a href="noticias.html">Notícias</a></li>
+        <li><a href="loja.html">Loja</a></li>
+        <li><a href="contactos.html">Contactos</a></li>
+        <li><a href="carrinho.html" class="ativo"></a></li>
+          <!-- Botão para a página do carrinho -->
+          <li><a class="btn btn-info text-white ms-2" href="carrinho.html">Carrinho</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Seção do carrinho de compras -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="mb-4 text-center">Carrinho de Compras</h2>
+      <div class="row">
+        <!-- Lista dos produtos no carrinho -->
+        <div class="col-md-8" id="cart-items">
+          <!-- Os produtos serão inseridos aqui via JavaScript -->
+        </div>
+        <!-- Resumo do pedido -->
+        <div class="col-md-4">
+          <div class="card shadow-sm">
+            <div class="card-body" id="cart-summary">
+              <!-- Resumo será gerado aqui via JavaScript -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Bootstrap Bundle JS para funcionalidades do Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Executar após o carregamento completo da página
+    document.addEventListener('DOMContentLoaded', () => {
+      // Obter o carrinho do localStorage ou iniciar array vazio
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+      // Referências aos elementos onde vamos colocar produtos e resumo
+      const itemsContainer = document.getElementById('cart-items');
+      const resumoContainer = document.getElementById('cart-summary');
+
+      // Função que atualiza a visualização do carrinho e resumo
+      function atualizarCarrinho() {
+        // Se o carrinho estiver vazio
+        if (cart.length === 0) {
+          // Mostrar mensagem de carrinho vazio
+          itemsContainer.innerHTML = `
+            <div class="alert alert-secondary text-center" role="alert">
+              O seu carrinho está vazio.
+            </div>`;
+          // Mostrar resumo vazio com valores a zero e botão desativado
+          resumoContainer.innerHTML = `
+            <h5 class="card-title">Resumo da Encomenda</h5>
+            <ul class="list-unstyled mb-4">
+              <li class="d-flex justify-content-between"><span>Subtotal</span><strong>0,00€</strong></li>
+              <li class="d-flex justify-content-between"><span>Entrega</span><strong>0,00€</strong></li>
+              <li class="d-flex justify-content-between"><span>IVA</span><strong>0,00€</strong></li>
+            </ul>
+            <hr />
+            <div class="d-flex justify-content-between fs-5 fw-bold">
+              <span>Total</span><span>0,00€</span>
+            </div>
+            <button class="btn btn-success w-100 mt-4" disabled>Finalizar Compra</button>
+          `;
+          return;
+        }
+
+        // Variável para armazenar o HTML dos produtos e calcular subtotal
+        let produtosHTML = '';
+        let subtotal = 0;
+
+        // Iterar sobre cada produto no carrinho
+        cart.forEach((item, index) => {
+          // Atualizar subtotal somando preço * quantidade
+          subtotal += item.price * item.quantity;
+
+          // Gerar HTML para o produto atual
+          produtosHTML += `
+            <div class="card mb-3">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="${item.image}" class="img-fluid rounded-start" alt="${item.name}">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">${item.name}</h5>
+                    <p class="card-text"><strong>Preço:</strong> ${item.price.toFixed(2)}€</p>
+                    <!-- Botões para diminuir e aumentar quantidade -->
+                    <div class="d-flex align-items-center mb-2">
+                      <button class="btn btn-outline-secondary btn-sm me-2 decrease" data-index="${index}">−</button>
+                      <span><strong>${item.quantity}</strong></span>
+                      <button class="btn btn-outline-secondary btn-sm ms-2 increase" data-index="${index}">+</button>
+                    </div>
+                    <!-- Botão para remover produto -->
+                    <button class="btn btn-danger btn-sm remove-item" data-index="${index}">Remover</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        // Inserir os produtos na página
+        itemsContainer.innerHTML = produtosHTML;
+
+        // Definir valor fixo para entrega
+        const entrega = 0.00;
+        // Calcular IVA (23% sobre subtotal)
+        const iva = subtotal * 0.23;
+        // Calcular total (subtotal + iva + entrega)
+        const total = subtotal + iva + entrega;
+
+        // Gerar resumo da encomenda com valores formatados
+        resumoContainer.innerHTML = `
+          <h5 class="card-title">Resumo da Encomenda</h5>
+          <ul class="list-unstyled mb-4">
+            <li class="d-flex justify-content-between"><span>Subtotal</span><strong>${subtotal.toFixed(2)}€</strong></li>
+            <li class="d-flex justify-content-between"><span>Entrega</span><strong>${entrega.toFixed(2)}€</strong></li>
+            <li class="d-flex justify-content-between"><span>IVA</span><strong>${iva.toFixed(2)}€</strong></li>
+          </ul>
+          <hr />
+          <div class="d-flex justify-content-between fs-5 fw-bold">
+            <span>Total</span><span>${total.toFixed(2)}€</span>
+          </div>
+          <a href="checkout.html" class="btn btn-success w-100 mt-4">Finalizar Compra</a>
+        `;
+
+        // Adicionar evento aos botões "Remover" para eliminar produto
+        document.querySelectorAll('.remove-item').forEach(button => {
+          button.addEventListener('click', function () {
+            const index = this.dataset.index;
+            cart.splice(index, 1); // Remove produto do array
+            localStorage.setItem('cart', JSON.stringify(cart)); // Atualiza localStorage
+            atualizarCarrinho(); // Atualiza visualização
+          });
+        });
+
+        // Adicionar evento aos botões "+" para aumentar quantidade
+        document.querySelectorAll('.increase').forEach(button => {
+          button.addEventListener('click', function () {
+            const index = this.dataset.index;
+            // Verifica se não ultrapassa o stock máximo
+            if (cart[index].quantity < cart[index].stock) {
+              cart[index].quantity++;
+              localStorage.setItem('cart', JSON.stringify(cart));
+              atualizarCarrinho();
+            } else {
+              alert("Stock máximo atingido.");
+            }
+          });
+        });
+
+        // Adicionar evento aos botões "−" para diminuir quantidade
+        document.querySelectorAll('.decrease').forEach(button => {
+          button.addEventListener('click', function () {
+            const index = this.dataset.index;
+            // Quantidade mínima é 1
+            if (cart[index].quantity > 1) {
+              cart[index].quantity--;
+              localStorage.setItem('cart', JSON.stringify(cart));
+              atualizarCarrinho();
+            } else {
+              alert("A quantidade mínima é 1.");
+            }
+          });
+        });
+      }
+
+      // Chamar a função ao carregar a página para renderizar carrinho
+      atualizarCarrinho();
+    });
+  </script>
+
+</body>
+</html>
