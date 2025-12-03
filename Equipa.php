@@ -22,9 +22,13 @@ session_start();
       <ul>
         <li><a href="index.php">Início</a></li>
         <li><a href="história.php">História</a></li>
+        <li><a href="resultados.php">Resultados</a></li>
+        <li><a href="agenda.php">Agenda</a></li>
         <li><a href="Equipa.php" class="ativo">Equipa</a></li>
+        <li><a href="galeria.php">Galeria</a></li>
         <li><a href="contactos.php">Contactos</a></li>
-        <li><a href="carrinho.html"></a></li>
+        
+        
 
 <?php if (isset($_SESSION['username'])): ?>
   <li class="user-info">
@@ -685,6 +689,40 @@ session_start();
       <div class="posicao"> Médio</div>
       <div class="extra">🇵🇹  | #10</div>
     </div>
+
+<!-- Modal Danilo -->
+
+<div id="modal-Danilo" class="modal">
+  <div class="modal-conteudo-ficha">
+    <span class="fechar" onclick="fecharModal('Danilo')">&times;</span>
+    <div class="ficha-header">
+      <img src="Imagens/Equipa/Jogadores/Imagem_Jogador_Danilo.jpeg" alt="Danilo Oliveira">
+      <div>
+        <h2>Danilo Oliveira</h2>
+        <p><strong>Modalidade:</strong> Futebol</p>
+        <p><strong>Clube Atual:</strong> AD Ponte da Barca</p>
+      </div>
+    </div>
+    <hr>
+    <div class="ficha-bio">
+      <h3>BIO</h3>
+      <p><strong>Nome completo:</strong> Danilo Constantino Azevedo Oliveira</p>
+      <p><strong>Data de nascimento:</strong> 25 de julho de 2004</p>
+      <p><strong>Nacionalidade:</strong> Portuguesa</p>
+      <p><strong>Posição:</strong> Avançado</p>
+      <p><strong>Número:</strong> 18</p>
+    </div>
+  </div>
+</div>
+
+<!-- Card Danilo -->  
+    <div class="jogador-card" onclick="abrirModal('Danilo')">
+      <img src="Imagens/Equipa/Jogadores/Imagem_Jogador_Danilo.jpeg" alt="Jogador" class="foto">
+      <div class="nome">Danilo Oliveira</div>
+      <div class="posicao"> Avançado</div>
+      <div class="extra">🇵🇹  | #18</div>
+    </div>
+
 
 <!-- Modal Luis Guerra -->
 <div id="modal-Luis Guerra" class="modal">

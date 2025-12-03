@@ -6,7 +6,7 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Equipa</title>
+  <title>Contactos</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,9 +21,12 @@ session_start();
       <ul>
         <li><a href="index.php">Início</a></li>
         <li><a href="história.php">História</a></li>
+        <li><a href="resultados.php">Resultados</a></li>
+        <li><a href="agenda.php">Agenda</a></li>
         <li><a href="Equipa.php">Equipa</a></li>
+        <li><a href="galeria.php">Galeria</a></li>
         <li><a href="contactos.php" class="ativo">Contactos</a></li>
-        <li><a href="carrinho.php"></a></li>
+
 
 <?php if (isset($_SESSION['username'])): ?>
   <li class="user-info">
@@ -49,7 +52,7 @@ session_start();
   <div class="contactos-container">
 
     <div class="contactos-info">
-      <h2>📍 Sede do Clube</h2>
+      <h2> Sede do Clube</h2>
       <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2974.146372538899!2d-8.415196935036624!3d41.80360713142451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2508dc3172a46d%3A0x544892d7971ca82b!2sAdponted%20Abarca!5e0!3m2!1spt-PT!2spt!4v1760873512212!5m2!1spt-PT!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
 
       <h2> Email</h2>
@@ -71,7 +74,7 @@ session_start();
 
     </div>
     <div class="contactos-form">
-      <h2>📬 Envia-nos uma mensagem</h2>
+      <h2> Envia-nos uma mensagem</h2>
       <form action="#" method="post">
         <input type="text" name="nome" placeholder="O teu nome" required>
         <input type="email" name="email" placeholder="O teu email" required>

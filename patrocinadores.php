@@ -52,9 +52,7 @@
       <img src="Imagens/Patrocinadores/Patrocinador 19.svg" alt="Patrocinador 19">
     </div>
 
-    <a href="index.php" class="botao-voltar">⬅ Voltar ao início</a>
-  </main>
-
+  
   <footer class="rodape">
     <p>© <span id="ano"></span> Associação Desportiva de Ponte da Barca</p>
   </footer>

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("../Backoffice/ligacao.php");
+require_once __DIR__ . '/../admin/db.php';
 
 if (!isset($_SESSION['username'])) {
     header("Location: ../admin/login.php");

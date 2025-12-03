@@ -84,7 +84,7 @@ if (!$result) {
 
                 <td>
                     <?php
-                    $image_path = '../uploads/noticias/' . $row['image'];
+                    $image_path = '../uploads/' . $row['image'];
                     if (!empty($row['image']) && file_exists($image_path)): ?>
                         <img class="thumb" src="<?= $image_path ?>" alt="Imagem da notícia">
                     <?php else: ?>

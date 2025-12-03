@@ -21,9 +21,12 @@ session_start();
       <ul>
         <li><a href="index.php">Início</a></li>
         <li><a href="história.php" class="ativo">História</a></li>
+        <li><a href="resultados.php">Resultados</a></li>
+        <li><a href="agenda.php">Agenda</a></li>
         <li><a href="Equipa.php">Equipa</a></li>
+        <li><a href="galeria.php">Galeria</a></li>
         <li><a href="contactos.php">Contactos</a></li>
-        <li><a href="carrinho.html"></a></li>
+        
  
 <?php if (isset($_SESSION['username'])): ?>
   <li class="user-info">

@@ -2,6 +2,8 @@
 session_start();
 require_once __DIR__ . '/admin/db.php';
 ?>
+
+
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
@@ -13,27 +15,30 @@ require_once __DIR__ . '/admin/db.php';
 <body>
 
 <header class="topo">
-    <img src="Imagens/Gerais/Logotipo ADPB_projeto.png" class="logo">
+  <img src="Imagens/Gerais/Logotipo ADPB_projeto.png" class="logo">
 
-    <button class="hamburger" id="hamburger">☰</button>
+  <button class="hamburger" id="hamburger">☰</button>
 
-    <nav class="nav-principal" id="navMenu">
-        <ul>
-            <li><a href="index.php" class="ativo">Início</a></li>
-            <li><a href="história.php">História</a></li>
-            <li><a href="Equipa.php">Equipa</a></li>
-            <li><a href="contactos.php">Contactos</a></li>
+  <nav class="nav-principal" id="navMenu">
+    <ul>
+      <li><a href="index.php" class="ativo">Início</a></li>
+      <li><a href="história.php">História</a></li>
+      <li><a href="resultados.php">Resultados</a></li>
+      <li><a href="agenda.php">Agenda</a></li>
+      <li><a href="Equipa.php">Equipa</a></li>
+      <li><a href="galeria.php">Galeria</a></li>
+      <li><a href="contactos.php">Contactos</a></li>
 
-            <?php if(isset($_SESSION['username'])): ?>
-                <li class="user-info">
-                    <a href="Utilizador/perfil.php">👤 <?= $_SESSION['username']; ?></a>
-                    <a href="admin/logout.php" class="logout-link">Sair</a>
-                </li>
-            <?php else: ?>
-                <li><a href="admin/login.php">Entrar</a></li>
-            <?php endif; ?>
-        </ul>
-    </nav>
+      <?php if(isset($_SESSION['username'])): ?>
+        <li class="user-info">
+          <a href="Utilizador/perfil.php">👤 <?= $_SESSION['username']; ?></a>
+          <a href="admin/logout.php" class="logout-link">Sair</a>
+        </li>
+      <?php else: ?>
+        <li><a href="admin/login.php">Entrar</a></li>
+      <?php endif; ?>
+    </ul>
+  </nav>
 </header>
 
 <!-- HERO -->
@@ -62,7 +67,7 @@ require_once __DIR__ . '/admin/db.php';
                 <div class="resultado-equipas">
 
                     <div class="equipa">
-                        <img src="uploads/Resultados/<?= htmlspecialchars($r['imagem_casa']); ?>" alt="">
+                        <img src="uploads/<?= htmlspecialchars($r['imagem_casa']); ?>" alt="">
                         <p><?= htmlspecialchars($r['equipa_casa']); ?></p>
                     </div>
 
@@ -71,7 +76,7 @@ require_once __DIR__ . '/admin/db.php';
                     </div>
 
                     <div class="equipa">
-                        <img src="uploads/Resultados/<?= htmlspecialchars($r['imagem_fora']); ?>" alt="">
+                        <img src="uploads/<?= htmlspecialchars($r['imagem_fora']); ?>" alt="">
                         <p><?= htmlspecialchars($r['equipa_fora']); ?></p>
                     </div>
 
@@ -81,6 +86,8 @@ require_once __DIR__ . '/admin/db.php';
         </div>
     </div>
 </section>
+
+
 
 <!-- PRÓXIMO JOGO -->
 <section class="proximo-jogo">
@@ -137,7 +144,7 @@ require_once __DIR__ . '/admin/db.php';
             <?php while($n = $news->fetch_assoc()): ?>
                 <article class="noticia-card">
                     <a href="noticia.php?id=<?= $n['id']; ?>">
-                        <img src="uploads<?= htmlspecialchars($n['image']); ?>" class="noticia-img">
+                        <img src="uploads/<?= htmlspecialchars($n['image']); ?>" class="noticia-img">
                     </a>
 
                     <div class="noticia-info">
@@ -182,6 +189,29 @@ document.getElementById("ano").textContent = new Date().getFullYear();
 
 document.getElementById("hamburger").addEventListener("click", () => {
   document.getElementById("navMenu").classList.toggle("ativo");
+});
+</script>
+<script>
+
+const carousel = document.getElementById("resultsCarousel");
+const btnNext = document.querySelector(".carousel-btn.next");
+const btnPrev = document.querySelector(".carousel-btn.prev");
+
+
+const scrollAmount = 300;
+
+btnNext.addEventListener("click", () => {
+    carousel.scrollBy({
+        left: scrollAmount,
+        behavior: "smooth"
+    });
+});
+
+btnPrev.addEventListener("click", () => {
+    carousel.scrollBy({
+        left: -scrollAmount,
+        behavior: "smooth"
+    });
 });
 </script>
 

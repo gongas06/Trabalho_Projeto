@@ -3,10 +3,22 @@ require_once 'auth.php';
 require_once 'db.php';
 require_login();
 
-$id = intval($_GET['id']);
+$id = intval($_GET['id'] ?? 0);
+if ($id === 0) {
+    die("ID inválido.");
+}
+
 $res = $mysqli->query("SELECT * FROM resultados WHERE id = $id");
 $r = $res->fetch_assoc();
 
+include 'includes/header.php';
+?>
+
+<h3>Editar Resultado</h3>
+
+<form action="edit_resultado_submit.php" method="POST" enctype="multipart/form-data">
+
+    <input type="hidden" name="id" value="<?= $r['id'] ?>">
 include 'includes/header.php';
 ?>
 

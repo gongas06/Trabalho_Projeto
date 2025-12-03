@@ -1,56 +1,58 @@
 <?php
-require_once "admin/db.php";
-
-// Filtros (podes adaptar)
-$epoca = $_GET['epoca'] ?? '';
-$competicao = $_GET['competicao'] ?? '';
-
-$sql = "SELECT * FROM resultados WHERE 1";
-
-if ($epoca !== '') {
-    $sql .= " AND epoca = '$epoca'";
-}
-
-if ($competicao !== '') {
-    $sql .= " AND competicao = '$competicao'";
-}
-
-$sql .= " ORDER BY created_at DESC";
-
-$res = $mysqli->query($sql);
+session_start();
+require_once __DIR__ . '/admin/db.php';
 ?>
 
-<section class="todos-resultados">
-    <div class="container">
-        <h2>Resultados</h2>
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados — ADPB</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-        <div class="resultados-grid">
-            <?php while ($r = $res->fetch_assoc()): ?>
-                <div class="resultado-card">
+<h1 class="titulo">Resultados</h1>
 
-                    <div class="resultado-equipas">
+<div class="todos-resultados">
 
-                        <div class="equipa">
-                            <img src="uploads/<?= htmlspecialchars($r['imagem_casa']) ?>" alt="">
-                            <p><?= htmlspecialchars($r['equipa_casa']) ?></p>
-                        </div>
+<?php
+$sql = "SELECT * FROM resultados ORDER BY created_at DESC";
+$res = $mysqli->query($sql);
 
-                        <div class="resultado-score">
-                            <?= $r['golo_casa'] ?> - <?= $r['golo_fora'] ?>
-                        </div>
+if ($res && $res->num_rows > 0):
+    while ($r = $res->fetch_assoc()):
+?>
 
-                        <div class="equipa">
-                            <img src="uploads/<?= htmlspecialchars($r['imagem_fora']) ?>" alt="">
-                            <p><?= htmlspecialchars($r['equipa_fora']) ?></p>
-                        </div>
+    <div class="resultado-card">
 
-                    </div>
-
-                </div>
-            <?php endwhile; ?>
+        <div class="equipas">
+            <img src="uploads/<?= htmlspecialchars($r['imagem_casa']) ?>" alt="">
+            <div class="vs">
+                <?= htmlspecialchars($r['golo_casa']) ?> - <?= htmlspecialchars($r['golo_fora']) ?>
+            </div>
+            <img src="uploads/<?= htmlspecialchars($r['imagem_fora']) ?>" alt="">
         </div>
+
+        <p class="texto-equipas">
+            <?= htmlspecialchars($r['equipa_casa']) ?> vs <?= htmlspecialchars($r['equipa_fora']) ?>
+        </p>
+
+        <p class="info">
+            <?= htmlspecialchars($r['competicao'] ?? '') ?> —
+            <?= htmlspecialchars($r['epoca'] ?? '') ?>
+        </p>
+
     </div>
-</section>
 
+<?php
+    endwhile;
+else:
+    echo "<p>Nenhum resultado disponível.</p>";
+endif;
+?>
 
+</div>
 
+</body>
+</html>

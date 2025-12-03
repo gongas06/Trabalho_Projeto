@@ -31,7 +31,7 @@ if (!$noticia) {
 
 <section class="noticia-pagina">
     <div class="container">
-        <img src="Imagens/Noticias/<?php echo $noticia['image']; ?>" class="noticia-img">
+        <img src=".../uploads<?php echo $noticia['image']; ?>" class="noticia-img">
 
         <h1><?php echo htmlspecialchars($noticia['title']); ?></h1>
 

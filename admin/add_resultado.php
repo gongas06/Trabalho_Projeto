@@ -42,7 +42,7 @@ include 'includes/header.php';
             </div>
 
             <button class="btn btn-success">Guardar</button>
-            <a class="btn btn-secondary" href="resultados.php">Voltar</a>
+            <a class="btn btn-secondary" href="edit_resultado.php">Voltar</a>
 
         </form>
 

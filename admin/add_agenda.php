@@ -35,6 +35,11 @@ include 'includes/header.php';
                 <input type="text" name="local_jogo" class="form-control" required>
             </div>
 
+            <div class="mb-3">
+                <label>Competição</label>
+                <input type="text" name="competicao" class="form-control" required>
+            </div>
+            
             <button class="btn btn-success">Guardar</button>
             <a href="agenda.php" class="btn btn-secondary">Cancelar</a>
 

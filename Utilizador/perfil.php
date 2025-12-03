@@ -2,7 +2,7 @@
 session_start();
 
 // Liga à base de dados
-include_once("../Backoffice/ligacao.php");
+require_once __DIR__ . '/../admin/db.php';
 
 // Verifica se o utilizador está logado
 if (!isset($_SESSION['username'])) {
@@ -12,14 +12,12 @@ if (!isset($_SESSION['username'])) {
 
 $username = $_SESSION['username'];
 
-// Obtém informações do utilizador logado
-try {
-    $stmt = $ligacao->prepare("SELECT * FROM utilizadores WHERE username = ?");
-    $stmt->execute([$username]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Erro ao obter dados do utilizador: " . $e->getMessage());
-}
+// Obtém informações do utilizador logado (MySQLi)
+$stmt = $mysqli->prepare("SELECT * FROM utilizadores WHERE username = ?");
+$stmt->bind_param("s", $username);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
 
 // Se não encontrar utilizador
 if (!$user) {
@@ -27,7 +25,6 @@ if (!$user) {
     exit;
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -84,9 +81,20 @@ if (!$user) {
     <h2>Perfil de <?php echo htmlspecialchars($user['username']); ?></h2>
 
     <div class="info">
-        <p><strong>Nome:</strong> <?php echo htmlspecialchars($user['nome']); ?></p>
-        <p><strong>Email:</strong> <?php echo htmlspecialchars($user['email']); ?></p>
-        <p><strong>Data de Registo:</strong> <?php echo htmlspecialchars($user['data_registo']); ?></p>
+<?php echo htmlspecialchars($user['nome'] ?? ''); ?>
+<?php echo htmlspecialchars($user['email'] ?? ''); ?>
+
+    <p><strong>Data de Registo:</strong>
+    <?php
+        if (!empty($user['criado_em'])) {
+            $data = date("d/m/Y", strtotime($user['criado_em']));
+            echo htmlspecialchars($data);
+        } else {
+            echo '—';
+        }
+    ?>
+</p>
+
     </div>
 
     <a href="atualizar.php" class="botao-editar">Editar Perfil</a>
