@@ -1,4 +1,4 @@
-// menu.js — controla o menu hambúrguer
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger");
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// --- Animação dos contadores no Palmarés ---
+
 document.addEventListener("DOMContentLoaded", () => {
   const counters = document.querySelectorAll(".contador");
 

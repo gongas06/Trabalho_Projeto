@@ -21,6 +21,7 @@ session_start();
       <ul>
         <li><a href="index.php">Início</a></li>
         <li><a href="história.php">História</a></li>
+        <li><a href="noticias.php">Noticias</a></li>
         <li><a href="resultados.php">Resultados</a></li>
         <li><a href="agenda.php">Agenda</a></li>
         <li><a href="Equipa.php">Equipa</a></li>
@@ -66,11 +67,6 @@ session_start();
   <h2>Estádio</h2>
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.0412810802286!2d-8.4186608!3d41.8048481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2508e000c0f401%3A0xa3ffd9d4e5bf6db3!2sCampo%20Municipal%20Ponte%20da%20Barca!5e1!3m2!1spt-PT!2spt!4v1760873349128!5m2!1spt-PT!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
-<h2>Redes Sociais</h2>
-
-<p>Facebook: <a href="https://www.facebook.com/adpboficial">facebook.com/adpontedabarca</a></p>
-<p>Instagram: <a href="https://www.instagram.com/adpontedabarca/">instagram.com/adpontedabarca</a>
-
 
     </div>
     <div class="contactos-form">
@@ -85,8 +81,8 @@ session_start();
   </div>
 </section>
 
+<?php include 'footer.php'; ?>
+
 <script src="Menu.js"></script>
 
-<footer class="rodape">
-    <p>© <span id="ano"></span> 2025 Associação Desportiva de Ponte da Barca</p>
-  </footer>
+

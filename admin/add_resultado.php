@@ -33,12 +33,12 @@ include 'includes/header.php';
 
             <div class="mb-3">
                 <label class="form-label">Imagem Casa (opcional)</label>
-                <input type="file" name="imagem_casa" class="form-control">
+                <img src="uploads/<?= htmlspecialchars($r['imagem_casa']) ?>" alt="">
             </div>
 
             <div class="mb-3">
                 <label class="form-label">Imagem Fora (opcional)</label>
-                <input type="file" name="imagem_fora" class="form-control">
+                <img src="uploads/<?= htmlspecialchars($r['imagem_fora']) ?>" alt="">
             </div>
 
             <button class="btn btn-success">Guardar</button>

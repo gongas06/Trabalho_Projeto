@@ -14,6 +14,7 @@ require_once __DIR__ . '/admin/db.php';
       <ul>
         <li><a href="index.php">Início</a></li>
         <li><a href="história.php">História</a></li>
+        <li><a href="noticias.php">Noticias</a></li>
         <li><a href="resultados.php">Resultados</a></li>
         <li><a href="agenda.php" class="ativo">Agenda</a></li>
         <li><a href="Equipa.php">Equipa</a></li>
@@ -48,13 +49,13 @@ $epoca = isset($_GET['epoca']) ? $_GET['epoca'] : "2025/2026";
 
 // Buscar apenas jogos futuros
 $jogos = $mysqli->query("
-    SELECT * FROM agenda
+    SELECT *
+    FROM agenda
     WHERE epoca = '$epoca'
-    AND data_jogo >= '$hoje'
+    AND TIMESTAMP(data_jogo, hora_jogo) >= NOW()
     ORDER BY data_jogo ASC, hora_jogo ASC
 ");
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>
@@ -119,9 +120,11 @@ $jogos = $mysqli->query("
     <?php endwhile; ?>
 
 <?php endif; ?>
-
 </section>
 
+<?php include 'footer.php'; ?>
+
+<script src="Menu.js"></script>
 </body>
 </html>
 

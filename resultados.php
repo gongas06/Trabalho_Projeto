@@ -3,36 +3,35 @@ session_start();
 require_once "./admin/db.php";
 ?>
 
+
 <header class="topo">
     <img src="Imagens/Gerais/Logotipo ADPB_projeto.png" alt="Logo ADPB" class="logo">
-
 
     <button class="hamburger" id="hamburger">☰</button>
 
     <nav class="nav-principal" id="navMenu">
 
       <ul>
-        <li><a href="index.php">Início</a></li>
-        <li><a href="história.php">História</a></li>
-        <li><a href="resultados.php" class="ativo">Resultados</a></li>
-        <li><a href="agenda.php">Agenda</a></li>
-        <li><a href="Equipa.php">Equipa</a></li>
-        <li><a href="galeria.php">Galeria</a></li>
-        <li><a href="contactos.php">Contactos</a></li>
-        
-        
+            <li><a href="index.php">Início</a></li>
+            <li><a href="história.php">História</a></li>
+            <li><a href="noticias.php">Noticias</a></li>
+            <li><a href="resultados.php" class="ativo">Resultados</a></li>
+            <li><a href="agenda.php">Agenda</a></li>
+            <li><a href="Equipa.php">Equipa</a></li>
+            <li><a href="galeria.php">Galeria</a></li>
+            <li><a href="contactos.php">Contactos</a></li>
+            
+            
 
-<?php if (isset($_SESSION['username'])): ?>
-  <li class="user-info">
-    <span>👤 <?php echo htmlspecialchars($_SESSION['username']); ?></span>
-    <a href="admin/logout.php" class="logout-link">Sair</a>
-  </li>
-<?php else: ?>
-  <li><a href="admin/login.php">Entrar</a></li>
-<?php endif; ?>
-
-
-      </ul>
+            <?php if (isset($_SESSION['username'])): ?>
+            <li class="user-info">
+                <span>👤 <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                <a href="admin/logout.php" class="logout-link">Sair</a>
+            </li>
+            <?php else: ?>
+            <li><a href="admin/login.php">Entrar</a></li>
+            <?php endif; ?>
+         </ul>
     </nav>
 
     </header>
@@ -75,11 +74,6 @@ if (!empty($params)) {
 $stmt->execute();
 $res = $stmt->get_result();
 ?>
-<!DOCTYPE html>
-<html lang="pt-PT">
-<head>
-<meta charset="UTF-8">
-<title>Resultados Passados — ADPB</title>
 
 <style>
 body { font-family: Arial, sans-serif; background:#f5f5f5; }
@@ -216,6 +210,9 @@ body { font-family: Arial, sans-serif; background:#f5f5f5; }
 
 </div>
 
+
+<?php include 'footer.php'; ?>
+<script src="Menu.js"></script>
+
 </body>
 </html>
-

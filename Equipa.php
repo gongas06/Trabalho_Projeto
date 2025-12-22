@@ -22,6 +22,7 @@ session_start();
       <ul>
         <li><a href="index.php">Início</a></li>
         <li><a href="história.php">História</a></li>
+        <li><a href="noticias.php">Noticias</a></li>
         <li><a href="resultados.php">Resultados</a></li>
         <li><a href="agenda.php">Agenda</a></li>
         <li><a href="Equipa.php" class="ativo">Equipa</a></li>
@@ -119,6 +120,40 @@ session_start();
       <div class="posicao"> Guarda-Redes</div>
       <div class="extra">🇵🇹  | #22</div>
     </div>
+
+<!-- Modal Nuno Duarte -->
+<div id="modal-Nuno_Duarte" class="modal">
+  <div class="modal-conteudo-ficha">
+    <span class="fechar" onclick="fecharModal('Nuno_Duarte')">&times;</span>
+    <div class="ficha-header">
+      <img src="Imagens/Equipa/Jogadores/Imagem_Jogador_Nuno_Duarte.jpeg" alt="Nuno Duarte'">
+      <div>
+        <h2>Nuno Duarte</h2>
+        <p><strong>Modalidade:</strong> Futebol</p>
+        <p><strong>Clube Atual:</strong> AD Ponte da Barca</p>
+      </div>
+    </div>
+    <hr>
+    <div class="ficha-bio">
+      <h3>BIO</h3>
+      <p><strong>Nome completo:</strong> Nuno Filipe Gonçalves Duarte</p>
+      <p><strong>Data de nascimento:</strong> 29 de agosto de 1983</p>
+      <p><strong>Nacionalidade:</strong>Portuguesa</p>
+      <p><strong>Posição:</strong> Guarda-Redes</p>
+      <p><strong>Número:</strong> 31</p>
+    </div>
+  </div>
+</div>
+
+<!-- Card Nuno Duarte -->
+
+        <div class="jogador-card" onclick="abrirModal('Nuno_Duarte')">
+      <img src="Imagens/Equipa/Jogadores/Imagem_Jogador_Nuno_Duarte.jpeg" alt="Jogador" class="foto">
+      <div class="nome">Nuno Duarte</div>
+      <div class="posicao"> Guarda-Redes</div>
+      <div class="extra">🇵🇹  | #31</div>
+    </div>
+
 
 <!-- Modal Tiago-->
 
@@ -901,11 +936,6 @@ session_start();
       </div>
 
 
-       <div class="jogador-card">
-        <img src="Imagens/Equipa/Treinadores/Imagem_Treinador_Nuno_Duarte.png" alt="Treinador Adjunto" class="foto">
-        <div class="nome">Nuno Duarte</div>
-        <div class="posicao">Treinador Adjunto</div>
-      </div>
 
       <div class="jogador-card">
         <img src="Imagens/Equipa/Treinadores/Imagem_Treinador_Beto_Sá.png" alt="Treinador Adjunto" class="foto">
@@ -929,13 +959,8 @@ session_start();
      </div> 
 </section>
 
-<footer class="rodape">
-  <p>Fotografias retiradas do site oficial da 
-     <a href="https://www.fpf.pt/pt/Clubes/Detalhe-de-clube/Club/329" target="_blank">Federação Portuguesa de Futebol</a>.  
-     Uso apenas para fins educativos e não comerciais.</p>
-       <p>© <span id="ano"></span> Associação Desportiva de Ponte da Barca — Todos os direitos reservados.</p>
-      <p>Contacto: geral@adpb.pt • Tel: 912 345 678</p>
-</footer>
+<?php include 'footer.php'; ?>
+
 <script>
 function abrirModal(id) {
   document.getElementById('modal-' + id).style.display = 'flex';
@@ -957,8 +982,7 @@ window.onclick = function(event) {
 
 <script src="Menu.js"></script>
 
-</body>
-</html>
+
 
 </body>
 </html>

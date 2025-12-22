@@ -5,6 +5,66 @@
   padding: 0;
 }
 
+
+
+/* ===== GALERIA — 4 COLUNAS (INSTAGRAM STYLE) ===== */
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--vermelho);
+  margin: 40px 0 30px 0;
+}
+
+.galeria-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 20px 40px;
+  max-width: 1400px;
+  margin: 0 auto 40px auto;
+}
+
+.galeria-item {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+}
+
+.galeria-item img {
+  width: 85%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.galeria-item:hover {
+  transform: scale(1.03);
+  filter: brightness(0.95);
+}
+
+@media (max-width: 1200px) {
+  .galeria-container { grid-template-columns: repeat(3, 1fr); gap: 15px; padding: 20px 30px; }
+}
+
+@media (max-width: 768px) {
+  .galeria-container { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 20px 20px; }
+  .section-title { font-size: 1.5rem; margin: 30px 0 20px 0; }
+}
+
+@media (max-width: 480px) {
+  .galeria-container { grid-template-columns: 1fr; gap: 10px; padding: 15px; }
+}
+
 :root {
   --vermelho: #c71b1b;
   --vermelho-escuro: #9f1212;
@@ -1938,14 +1998,15 @@ h1 {
 
 /* Botão Ver todas */
 .btn-ver-todas {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 18px;
-    background: #c00;
-    color: #fff;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
+  display: block; /* torna o botão um bloco para permitir margin-left:auto */
+  margin: 20px 0 0 auto; /* alinha o botão à direita do seu container */
+  padding: 10px 18px;
+  background: #c00;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  width: fit-content; /* garante que o botão não ocupe 100% do espaço */
 }
 
 .btn-ver-todas:hover {
@@ -2442,13 +2503,19 @@ h1 {
     position: sticky;
     top: 0;
     z-index: 999;
-    flex-wrap: nowrap;               /* 🔥 impede quebrar linha */
+    flex-wrap: nowrap;               
 }
 
 /* LOGO */
 .logo {
-    height: 60px;                    /* 🔥 reduzido para caber com o menu */
-    flex-shrink: 0;                   /* 🔥 impede o logo de encolher de forma errada */
+  height: 60px;                    
+  flex-shrink: 0;                 
+}
+
+
+.topo .logo {
+  height: 48px; /* reduzir tamanho do logo no header */
+  width: auto;  
 }
 
 /* MENU PRINCIPAL */
@@ -2547,8 +2614,9 @@ h1 {
         padding: 12px 20px;
     }
 
-    .logo {
-        height: 55px;             /* um pouco menor no mobile */
+    /* Logo menor no mobile para o header */
+    .topo .logo {
+      height: 40px;             /* reduz ainda mais em ecrãs pequenos */
     }
 }
 
@@ -2570,4 +2638,172 @@ h1 {
     .nav-principal.ativo {
         display: block;
     }
+}
+
+/* ===========================
+   PÁGINA DE NOTÍCIA INDIVIDUAL
+   =========================== */
+
+.noticia-hero {
+    width: 100%;
+    height: 380px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+}
+
+.noticia-hero-overlay {
+    width: 100%;
+    padding: 40px;
+    background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+}
+
+.noticia-hero h1 {
+    font-size: 36px;
+    color: white;
+    margin: 0;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+
+/* ===========================
+   CONTEÚDO DA NOTÍCIA
+   =========================== */
+
+.noticia-conteudo {
+    background: #f5f5f5;
+    padding: 40px 0;
+}
+
+.noticia-container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.noticia-meta {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.noticia-corpo {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #333;
+}
+
+/* LISTA DE NOTÍCIAS */
+.noticias-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-top: 30px;
+}
+
+/* CARD */
+.noticia-item {
+  display: flex;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 3px 12px rgba(0,0,0,0.12);
+  border: 1px solid #e6e6e6;
+  transition: 0.2s;
+}
+
+.noticia-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 16px rgba(0,0,0,0.16);
+}
+
+/* IMAGEM */
+.noticia-img-wrapper {
+  width: 40%;
+  min-height: 160px;
+  overflow: hidden;
+}
+
+.noticia-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CONTEÚDO */
+.noticia-conteudo {
+  padding: 20px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.noticia-titulo {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.noticia-excerto {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* DATA */
+.noticia-data {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #999;
+  text-align: right;
+}
+
+.noticia-destaque {
+  position: relative;
+  width: 100%;
+  height: 650px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+
+.noticia-destaque .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+.conteudo-destaque {
+  position: relative;
+  max-width: 700px;
+  margin-left: 80px;
+  color: #fff;
+}
+
+.conteudo-destaque h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 30px;
+}
+
+.btn-ler {
+  background: #c8322a;
+  color: #fff;
+  padding: 15px 35px;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+}
+
+.btn-ler:hover {
+  background: #a62822;
 }

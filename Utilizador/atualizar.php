@@ -7,10 +7,22 @@ if (!isset($_SESSION['username'])) {
     exit;
 }
 
-$id = $_POST['id'];
-$username = trim($_POST['username']);
-$email = trim($_POST['email']);
-$password = trim($_POST['password']);
+
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    die("Acesso inválido.");
+}
+
+
+$id = $_POST['id'] ?? null;
+$username = trim($_POST['username'] ?? '');
+$email = trim($_POST['email'] ?? '');
+$password = trim($_POST['password'] ?? '');
+
+
+if (!$id) {
+    die("ID do utilizador não encontrado.");
+}
+
 
 if ($password !== "") {
     $hashed = password_hash($password, PASSWORD_DEFAULT);
@@ -22,10 +34,11 @@ if ($password !== "") {
 }
 
 if ($stmt->execute()) {
-    $_SESSION['username'] = $username; 
+    $_SESSION['username'] = $username;
     header("Location: perfil.php?sucesso=1");
     exit;
 } else {
-    echo "Erro ao atualizar perfil.";
+    echo "Erro ao atualizar perfil: " . $stmt->error;
 }
 ?>
+

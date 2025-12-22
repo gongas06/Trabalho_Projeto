@@ -23,6 +23,7 @@ require_once __DIR__ . '/admin/db.php';
     <ul>
       <li><a href="index.php" class="ativo">Início</a></li>
       <li><a href="história.php">História</a></li>
+      <li><a href="noticias.php">Noticias</a></li>
       <li><a href="resultados.php">Resultados</a></li>
       <li><a href="agenda.php">Agenda</a></li>
       <li><a href="Equipa.php">Equipa</a></li>
@@ -56,7 +57,6 @@ require_once __DIR__ . '/admin/db.php';
 <section class="ultimos-resultados">
     <div class="container">
         <h2>Últimos Resultados</h2>
-
         <?php
         $res = $mysqli->query("SELECT * FROM resultados ORDER BY created_at DESC LIMIT 4");
         ?>
@@ -80,9 +80,11 @@ require_once __DIR__ . '/admin/db.php';
                         <p><?= htmlspecialchars($r['equipa_fora']); ?></p>
                     </div>
 
+                    
                 </div>
             </div>
         <?php endwhile; ?>
+
         </div>
     </div>
 </section>
@@ -93,16 +95,19 @@ require_once __DIR__ . '/admin/db.php';
 <section class="proximo-jogo">
     <div class="container">
 
-        <?php
-        $proxSQL = "
-            SELECT * FROM agenda
-            WHERE data_jogo >= CURDATE()
-            ORDER BY data_jogo ASC, hora_jogo ASC
-            LIMIT 1
-        ";
-        $proxRes = $mysqli->query($proxSQL);
-        $prox = $proxRes->fetch_assoc();
-        ?>
+      <?php
+date_default_timezone_set('Europe/Lisbon');
+
+$proxSQL = "
+    SELECT * FROM agenda
+    WHERE TIMESTAMP(data_jogo, hora_jogo) > NOW()
+    ORDER BY data_jogo ASC, hora_jogo ASC
+    LIMIT 1
+";
+$proxRes = $mysqli->query($proxSQL);
+$prox = $proxRes->fetch_assoc();
+?>
+
 
         <?php if ($prox): ?>
         <div class="proximo-jogo-box">
@@ -168,50 +173,16 @@ require_once __DIR__ . '/admin/db.php';
 
 <?php if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin'): ?>
 <div class="admin-actions">
-    <a href="admin/add_news.php" class="admin-btn">+ Adicionar Notícia</a>
-    <a href="admin/add_resultado.php" class="admin-btn">+ Adicionar Resultado</a>
+    <a href="admin/dashboard.php" class="admin-btn">Dashboard</a>
+
 </div>
 <?php endif; ?>
 
-<footer class="rodape">
-  <div class="container">
-    <a href="patrocinadores.php" class="botao-patrocinadores">🤝</a>
-    <p>
-      <a href="privacidade.php" class="footer-link">Política de Privacidade e Cookies</a> |
-      <a href="termos.php" class="footer-link">Termos e Condições</a>
-    </p>
-    <p>© <span id="ano"></span> Associação Desportiva de Ponte da Barca — Todos os direitos reservados.</p>
-  </div>
-</footer>
-
+<?php include 'footer.php'; ?>
 <script>
-document.getElementById("ano").textContent = new Date().getFullYear();
 
 document.getElementById("hamburger").addEventListener("click", () => {
   document.getElementById("navMenu").classList.toggle("ativo");
-});
-</script>
-<script>
-
-const carousel = document.getElementById("resultsCarousel");
-const btnNext = document.querySelector(".carousel-btn.next");
-const btnPrev = document.querySelector(".carousel-btn.prev");
-
-
-const scrollAmount = 300;
-
-btnNext.addEventListener("click", () => {
-    carousel.scrollBy({
-        left: scrollAmount,
-        behavior: "smooth"
-    });
-});
-
-btnPrev.addEventListener("click", () => {
-    carousel.scrollBy({
-        left: -scrollAmount,
-        behavior: "smooth"
-    });
 });
 </script>
 

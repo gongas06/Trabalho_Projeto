@@ -21,6 +21,7 @@ session_start();
       <ul>
         <li><a href="index.php">Início</a></li>
         <li><a href="história.php" class="ativo">História</a></li>
+        <li><a href="noticias.php">Noticias</a></li>
         <li><a href="resultados.php">Resultados</a></li>
         <li><a href="agenda.php">Agenda</a></li>
         <li><a href="Equipa.php">Equipa</a></li>
@@ -126,13 +127,9 @@ session_start();
       </div>
     </section>
 
+  </main>
+<?php include 'footer.php'; ?>
 
-
-
-  <!-- ⚫ Rodapé -->
-  <footer class="rodape">
-    <p>© 2025 Associação Desportiva de Ponte da Barca</p>
-  </footer>
 
   <script src="Menu.js"></script>
 </body>

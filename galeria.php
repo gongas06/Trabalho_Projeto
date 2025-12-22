@@ -1,16 +1,18 @@
 <?php
 session_start();
-
-
 include __DIR__ . "/admin/db.php";
 
-
-$result = $mysqli->query("SELECT * FROM galeria ORDER BY id DESC");
-
-
-
-$result = $mysqli->query("SELECT * FROM galeria WHERE categoria='dia'");
+$result = $mysqli->query("SELECT * FROM galeria WHERE categoria = 'comunidade' ORDER BY id DESC");
 ?>
+
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria - Associação Desportiva de Ponte da Barca</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
 
     <!-- 🔻 Cabeçalho -->
   <header class="topo">
@@ -24,6 +26,7 @@ $result = $mysqli->query("SELECT * FROM galeria WHERE categoria='dia'");
       <ul>
         <li><a href="index.php">Início</a></li>
         <li><a href="história.php">História</a></li>
+         <li><a href="noticias.php">Noticias</a></li>
         <li><a href="resultados.php">Resultados</a></li>
         <li><a href="agenda.php">Agenda</a></li>
         <li><a href="Equipa.php">Equipa</a></li>
@@ -31,14 +34,14 @@ $result = $mysqli->query("SELECT * FROM galeria WHERE categoria='dia'");
         <li><a href="contactos.php">Contactos</a></li>
         
 
-<?php if (isset($_SESSION['username'])): ?>
-  <li class="user-info">
-    <span>👤 <?php echo htmlspecialchars($_SESSION['username']); ?></span>
-    <a href="admin/logout.php" class="logout-link">Sair</a>
-  </li>
-<?php else: ?>
-  <li><a href="admin/login.php">Entrar</a></li>
-<?php endif; ?>
+        <?php if (isset($_SESSION['username'])): ?>
+          <li class="user-info">
+            <span>👤 <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+            <a href="admin/logout.php" class="logout-link">Sair</a>
+          </li>
+        <?php else: ?>
+          <li><a href="admin/login.php">Entrar</a></li>
+        <?php endif; ?>
 
 
       </ul>
@@ -46,43 +49,23 @@ $result = $mysqli->query("SELECT * FROM galeria WHERE categoria='dia'");
 
   </header>
 
-<h2 class="section-title">A nossa comunidade</h2>
+    <h2 class="section-title">A nossa comunidade</h2>
 
-<?php
-$sqlCarousel = $mysqli->query("SELECT * FROM galeria WHERE categoria='comunidade'");
-?>
+    <?php if ($result->num_rows > 0): ?>
 
+        <div class="galeria-container">
+            <?php while ($row = $result->fetch_assoc()): ?>
+                <div class="galeria-item">
+                    <img src="uploads/<?php echo $row['imagem']; ?>" alt="">
+                </div>
+            <?php endwhile; ?>
+        </div>
 
-<div class="carousel">
-    <?php if ($sqlCarousel && $sqlCarousel->num_rows > 0): ?>
-        <?php while ($row = $sqlCarousel->fetch_assoc()): ?>
-            <img src="uploads/<?= $row['imagem']; ?>" alt="<?= $row['descricao']; ?>">
-        <?php endwhile; ?>
     <?php else: ?>
-        <p style="text-align:center;">Ainda não há imagens nesta secção.</p>
+        <p>Ainda não há imagens nesta secção.</p>
     <?php endif; ?>
-</div>
 
+<?php include 'footer.php'; ?>
 
-
-
-
-<h2 class="section-title">O nosso dia a dia</h2>
-
-<?php
-$sqlDia = $mysqli->query("SELECT * FROM galeria WHERE categoria='dia'");
-?>
-
-
-<div class="gallery">
-    <?php if ($sqlDia && $sqlDia->num_rows > 0): ?>
-        <?php while ($row = $sqlDia->fetch_assoc()): ?>
-            <img src="uploads/<?= $row['imagem']; ?>" alt="<?= $row['descricao']; ?>">
-        <?php endwhile; ?>
-    <?php else: ?>
-        <p style="text-align:center;">Ainda não há fotos nesta secção.</p>
-    <?php endif; ?>
-</div>
-
-</body>
+  <script src="Menu.js"></script>
 </html>
