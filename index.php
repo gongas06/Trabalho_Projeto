@@ -11,6 +11,7 @@ require_once __DIR__ . '/admin/db.php';
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ADPB — Associação Desportiva de Ponte da Barca</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="carousel.css">
 </head>
 <body>
 
@@ -32,7 +33,7 @@ require_once __DIR__ . '/admin/db.php';
 
       <?php if(isset($_SESSION['username'])): ?>
         <li class="user-info">
-          <a href="Utilizador/perfil.php">👤 <?= $_SESSION['username']; ?></a>
+          <a href="Utilizador/perfil.php"><?= $_SESSION['username']; ?></a>
           <a href="admin/logout.php" class="logout-link">Sair</a>
         </li>
       <?php else: ?>

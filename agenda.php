@@ -25,7 +25,9 @@ require_once __DIR__ . '/admin/db.php';
 
 <?php if (isset($_SESSION['username'])): ?>
   <li class="user-info">
-    <span>👤 <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+    <a href="Utilizador/perfil.php" class="user-link">
+       <?php echo htmlspecialchars($_SESSION['username']); ?>
+    </a>
     <a href="admin/logout.php" class="logout-link">Sair</a>
   </li>
 <?php else: ?>

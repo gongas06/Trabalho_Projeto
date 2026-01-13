@@ -34,14 +34,16 @@ $result = $mysqli->query("SELECT * FROM galeria WHERE categoria = 'comunidade' O
         <li><a href="contactos.php">Contactos</a></li>
         
 
-        <?php if (isset($_SESSION['username'])): ?>
-          <li class="user-info">
-            <span>👤 <?php echo htmlspecialchars($_SESSION['username']); ?></span>
-            <a href="admin/logout.php" class="logout-link">Sair</a>
-          </li>
-        <?php else: ?>
-          <li><a href="admin/login.php">Entrar</a></li>
-        <?php endif; ?>
+  <?php if (isset($_SESSION['username'])): ?>
+  <li class="user-info">
+    <a href="Utilizador/perfil.php" class="user-link">
+       <?php echo htmlspecialchars($_SESSION['username']); ?>
+    </a>
+    <a href="admin/logout.php" class="logout-link">Sair</a>
+  </li>
+<?php else: ?>
+  <li><a href="admin/login.php">Entrar</a></li>
+<?php endif; ?>
 
 
       </ul>

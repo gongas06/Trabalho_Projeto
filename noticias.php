@@ -45,13 +45,15 @@ $result = $mysqli->query("
       <li><a href="contactos.php">Contactos</a></li>
 
       <?php if (isset($_SESSION['username'])): ?>
-        <li class="user-info">
-          <span>👤 <?= htmlspecialchars($_SESSION['username']); ?></span>
-          <a href="admin/logout.php" class="logout-link">Sair</a>
-        </li>
-      <?php else: ?>
-        <li><a href="admin/login.php">Entrar</a></li>
-      <?php endif; ?>
+  <li class="user-info">
+    <a href="Utilizador/perfil.php" class="user-link">
+      <?php echo htmlspecialchars($_SESSION['username']); ?>
+    </a>
+    <a href="admin/logout.php" class="logout-link">Sair</a>
+  </li>
+<?php else: ?>
+  <li><a href="admin/login.php">Entrar</a></li>
+<?php endif; ?>
     </ul>
   </nav>
 </header>

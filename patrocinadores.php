@@ -14,12 +14,23 @@
       <ul>
         <li><a href="index.php">Início</a></li>
         <li><a href="história.php">História</a></li>
-        <li><a href="Equipa.php">Equipa</a></li>
+        <li><a href="noticias.php">Noticias</a></li>
+        <li><a href="resultados.php">Resultados</a></li>
         <li><a href="agenda.php">Agenda</a></li>
-        <li><a href="noticias.php">Notícias</a></li>
-        <li><a href="loja.php">Loja</a></li>
+        <li><a href="Equipa.php">Equipa</a></li>
+        <li><a href="galeria.php">Galeria</a></li>
         <li><a href="contactos.php">Contactos</a></li>
-        <li><a href="Backoffice/login.php">Entrar</a></li>
+
+
+    <?php if(isset($_SESSION['username'])): ?>
+        <li class="user-info">
+          <a href="Utilizador/perfil.php"><?= $_SESSION['username']; ?></a>
+          <a href="admin/logout.php" class="logout-link">Sair</a>
+        </li>
+      <?php else: ?>
+        <li><a href="admin/login.php">Entrar</a></li>
+      <?php endif; ?>
+
       </ul>
     </nav>
   </header>

@@ -33,7 +33,9 @@ session_start();
 
 <?php if (isset($_SESSION['username'])): ?>
   <li class="user-info">
-    <span>👤 <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+    <a href="Utilizador/perfil.php" class="user-link">
+       <?php echo htmlspecialchars($_SESSION['username']); ?>
+    </a>
     <a href="admin/logout.php" class="logout-link">Sair</a>
   </li>
 <?php else: ?>
@@ -855,39 +857,6 @@ session_start();
       <div class="nome">Ricardo Coutinho</div>
       <div class="posicao"> Avançado</div>
       <div class="extra">🇵🇹  | #19</div>
-    </div>
-
-
-    <!-- Modal Kennet -->
-<div id="modal-Kennet" class="modal">
-  <div class="modal-conteudo-ficha">
-    <span class="fechar" onclick="fecharModal('Kennet')">&times;</span>
-    <div class="ficha-header">
-      <img src="Imagens/Equipa/Jogadores/Imagem_Jogador_Kennet.jpeg" alt="José Rego">
-      <div>
-        <h2>Kennet Perez </h2>
-        <p><strong>Modalidade:</strong> Futebol</p>
-        <p><strong>Clube Atual:</strong> AD Ponte da Barca</p>
-      </div>
-    </div>
-    <hr>
-    <div class="ficha-bio">
-      <h3>BIO</h3>
-      <p><strong>Nome completo:</strong> Kennet Tomas Pinto Perez</p>
-      <p><strong>Data de nascimento:</strong> 1 de Julho de 1994</p>
-      <p><strong>Nacionalidade:</strong>Colombiano</p>
-      <p><strong>Posição:</strong>Avançado</p>
-      <p><strong>Número:</strong> 99</p>
-    </div>
-  </div>
-</div>
-
-<!-- Card Kennet -->  
-    <div class="jogador-card" onclick="abrirModal('Kennet')">
-      <img src="Imagens/Equipa/Jogadores/Imagem_Jogador_Kennet.jpeg" alt="Jogador" class="foto">
-      <div class="nome">Kennet Perez</div>
-      <div class="posicao"> Avançado</div>
-      <div class="extra">🇨🇴 | #99</div>
     </div>
 
 <!-- Modal Claudio -->

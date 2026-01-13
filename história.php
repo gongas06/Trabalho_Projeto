@@ -32,7 +32,7 @@ session_start();
 <?php if (isset($_SESSION['username'])): ?>
   <li class="user-info">
     <a href="Utilizador/perfil.php" class="user-link">
-      👤 <?php echo htmlspecialchars($_SESSION['username']); ?>
+       <?php echo htmlspecialchars($_SESSION['username']); ?>
     </a>
     <a href="admin/logout.php" class="logout-link">Sair</a>
   </li>

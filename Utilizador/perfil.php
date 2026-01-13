@@ -1,10 +1,10 @@
 <?php
 session_start();
 
-// Liga à base de dados
+// Ligação à base de dados
 require_once __DIR__ . '/../admin/db.php';
 
-// Verifica se o utilizador está logado
+// Verifica se está logado
 if (!isset($_SESSION['username'])) {
     header("Location: ../admin/login.php");
     exit;
@@ -12,25 +12,27 @@ if (!isset($_SESSION['username'])) {
 
 $username = $_SESSION['username'];
 
-// Obtém informações do utilizador logado (MySQLi)
+// Buscar utilizador
 $stmt = $mysqli->prepare("SELECT * FROM utilizadores WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
 $result = $stmt->get_result();
 $user = $result->fetch_assoc();
 
-// Se não encontrar utilizador
 if (!$user) {
-    echo "<p>Utilizador não encontrado.</p>";
-    exit;
+    die("Utilizador não encontrado.");
 }
+
+// Foto (fallback seguro)
+$foto = !empty($user['foto']) ? $user['foto'] : 'default.png';
 ?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
     <meta charset="UTF-8">
     <title>Perfil de Utilizador</title>
-    <link rel="stylesheet" href="../style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -38,38 +40,64 @@ if (!$user) {
             margin: 0;
             padding: 0;
         }
+
         .perfil-container {
             max-width: 600px;
-            background: white;
+            background: #fff;
             margin: 80px auto;
             padding: 30px;
-            border-radius: 12px;
+            border-radius: 14px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        h2 {
             text-align: center;
-            color: #c8102e;
         }
-        .info {
+
+        h2 {
+            color: #c8102e;
+            margin-bottom: 10px;
+        }
+
+        .foto-perfil {
             margin: 20px 0;
         }
-        .info strong {
-            display: inline-block;
-            width: 150px;
+
+        .foto-perfil img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #c8102e;
         }
+
+        .info {
+            text-align: left;
+            margin: 25px 0;
+        }
+
+        .info p {
+            margin: 10px 0;
+            font-size: 15px;
+        }
+
+        .info strong {
+            width: 150px;
+            display: inline-block;
+            color: #333;
+        }
+
         .botao-editar {
             display: block;
             width: 100%;
             background: #c8102e;
-            color: white;
+            color: #fff;
             border: none;
-            padding: 12px;
+            padding: 14px;
             font-size: 16px;
-            cursor: pointer;
             border-radius: 8px;
             text-decoration: none;
-            text-align: center;
+            cursor: pointer;
+            margin-top: 20px;
         }
+
         .botao-editar:hover {
             background: #a00d25;
         }
@@ -78,28 +106,32 @@ if (!$user) {
 <body>
 
 <div class="perfil-container">
-    <h2>Perfil de <?php echo htmlspecialchars($user['username']); ?></h2>
 
-    <div class="info">
-<?php echo htmlspecialchars($user['nome'] ?? ''); ?>
-<?php echo htmlspecialchars($user['email'] ?? ''); ?>
+    <h2>Perfil de <?= htmlspecialchars($user['username']); ?></h2>
 
-    <p><strong>Data de Registo:</strong>
-    <?php
-        if (!empty($user['criado_em'])) {
-            $data = date("d/m/Y", strtotime($user['criado_em']));
-            echo htmlspecialchars($data);
-        } else {
-            echo '—';
-        }
-    ?>
-</p>
-
+    <div class="foto-perfil">
+        <img 
+            src="../uploads/perfis/<?= htmlspecialchars($foto); ?>" 
+            alt="Foto de perfil"
+        >
     </div>
 
-    <a href="atualizar.php" class="botao-editar">Editar Perfil</a>
+    <div class="info">
+        <p><strong>Nome:</strong> <?= htmlspecialchars($user['username'] ?? '—'); ?></p>
+        <p><strong>Email:</strong> <?= htmlspecialchars($user['email'] ?? '—'); ?></p>
+        <p><strong>Data de registo:</strong>
+            <?= !empty($user['criado_em']) 
+                ? date("d/m/Y", strtotime($user['criado_em'])) 
+                : '—'; ?>
+        </p>
+    </div>
+
+    <a href="editar_perfil.php" class="botao-editar">Editar Perfil</a>
+
 </div>
 
 </body>
 </html>
+
+
 
