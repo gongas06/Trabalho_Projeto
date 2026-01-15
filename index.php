@@ -185,7 +185,7 @@ $prox = $proxRes->fetch_assoc();
 
 <?php include 'footer.php'; ?>
 <script src="Menu.js"></script>
+<script src="carousel.js"></script>
 
 </body>
 </html>
-
