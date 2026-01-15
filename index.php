@@ -89,6 +89,7 @@ require_once __DIR__ . '/admin/db.php';
             <?php endwhile; ?>
 
             </div>
+            <a href="resultados.php" class="carousel-more" aria-label="Ver mais resultados">+</a>
             <button class="carousel-btn next" type="button" aria-label="Próximos resultados">›</button>
         </div>
     </div>
@@ -150,29 +151,32 @@ $prox = $proxRes->fetch_assoc();
         $news = $mysqli->query("SELECT * FROM noticias ORDER BY created_at DESC LIMIT 4");
         ?>
 
-        <div class="noticias-grid">
-            <?php while($n = $news->fetch_assoc()): ?>
-                <article class="noticia-card">
-                    <a href="noticia.php?id=<?= $n['id']; ?>">
-                        <img src="uploads/<?= htmlspecialchars($n['image']); ?>" class="noticia-img">
-                    </a>
+        <div class="noticias-carousel">
+            <button class="carousel-btn prev" type="button" aria-label="Notícias anteriores">‹</button>
+            <div class="noticias-grid">
+                <?php while($n = $news->fetch_assoc()): ?>
+                    <article class="noticia-card">
+                        <a href="noticia.php?id=<?= $n['id']; ?>">
+                            <img src="uploads/<?= htmlspecialchars($n['image']); ?>" class="noticia-img">
+                        </a>
 
-                    <div class="noticia-info">
-                        <h3><?= htmlspecialchars($n['title']); ?></h3>
+                        <div class="noticia-info">
+                            <h3><?= htmlspecialchars($n['title']); ?></h3>
 
-                        <p class="noticia-excerto">
-                            <?= htmlspecialchars(substr(strip_tags($n['body']), 0, 90)) ?>...
-                        </p>
+                            <p class="noticia-excerto">
+                                <?= htmlspecialchars(substr(strip_tags($n['body']), 0, 90)) ?>...
+                            </p>
 
-                        <a href="noticia.php?id=<?= $n['id']; ?>" class="btn-ler-mais">LER MAIS</a>
-                    </div>
-                </article>
-            <?php endwhile; ?>
+                            <a href="noticia.php?id=<?= $n['id']; ?>" class="btn-ler-mais">LER MAIS</a>
+                        </div>
+                    </article>
+                <?php endwhile; ?>
+            </div>
+            <a href="noticias.php" class="carousel-more" aria-label="Ver mais notícias">+</a>
+            <button class="carousel-btn next" type="button" aria-label="Próximas notícias">›</button>
         </div>
 
-        <div class="centro">
-            <a href="noticias.php" class="btn-ver-todas">Ver todas</a>
-        </div>
+        
     </div>
 </section>
 
@@ -186,6 +190,7 @@ $prox = $proxRes->fetch_assoc();
 <?php include 'footer.php'; ?>
 <script src="Menu.js"></script>
 <script src="carousel.js"></script>
+<script src="news-carousel.js"></script>
 
 </body>
 </html>

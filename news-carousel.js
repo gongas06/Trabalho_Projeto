@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const section = document.querySelector(".ultimos-resultados");
+  const section = document.querySelector(".ultimas-noticias");
   if (!section) return;
 
-  const grid = section.querySelector(".resultados-grid");
+  const grid = section.querySelector(".noticias-grid");
   const prevBtn = section.querySelector(".carousel-btn.prev");
   const nextBtn = section.querySelector(".carousel-btn.next");
-
   const moreLink = section.querySelector(".carousel-more");
+
   if (!grid || !prevBtn || !nextBtn || !moreLink) return;
 
   const getStep = () => {
-    const card = grid.querySelector(".resultado-card");
+    const card = grid.querySelector(".noticia-card");
     if (!card) return grid.clientWidth;
     const styles = window.getComputedStyle(grid);
     const gap = parseInt(styles.columnGap || styles.gap || "0", 10);
