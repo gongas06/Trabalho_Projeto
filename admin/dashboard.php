@@ -37,7 +37,7 @@ include 'includes/header.php';
         <div class="admin-sidebar-title">Painel</div>
         <nav class="admin-sidebar-nav">
             <a class="active" href="dashboard.php">Dashboard</a>
-            <a href="resultados.php">Gestão de Jogos</a>
+            <a href="resultados.php">Gestão de Resultados</a>
             <a href="news.php">Gestão de Notícias</a>
             <a href="agenda.php">Gestão de Agenda</a>
             <a href="users.php">Gestão de Utilizadores</a>
@@ -56,7 +56,7 @@ include 'includes/header.php';
 
         <div class="admin-card-grid">
             <article class="admin-card">
-                <div class="admin-card-title">Jogos</div>
+                <div class="admin-card-title">Resultados</div>
                 <div class="admin-card-metric">
                     <?= (int)$countGames; ?> registados
                 </div>

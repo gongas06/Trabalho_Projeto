@@ -15,7 +15,7 @@
 
     <nav class="admin-menu">
         <a href="dashboard.php">Dashboard</a>
-        <a href="resultados.php">Jogos</a>
+        <a href="resultados.php">Resultados</a>
         <a href="news.php">Notícias</a>
         <a href="agenda.php">Agenda</a>
         <a href="users.php">Utilizadores</a>

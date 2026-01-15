@@ -3202,7 +3202,7 @@ h1 {
 .conteudo-destaque {
   position: static;
   max-width: 700px;
-  margin-left: 0;
+  margin-left: auto;
   color: #fff;
   text-align: right;
 }
