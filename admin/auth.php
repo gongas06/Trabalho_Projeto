@@ -9,7 +9,10 @@ function require_login() {
 }
 
 function is_admin() {
-    return (!empty($_SESSION['role']) && $_SESSION['role'] === 'admin');
+    return (
+        !empty($_SESSION['role']) &&
+        in_array($_SESSION['role'], ['admin', 'superadmin'], true)
+    );
 }
 
 function is_superadmin() {

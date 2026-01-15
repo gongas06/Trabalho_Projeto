@@ -3,7 +3,8 @@ require_once 'auth.php';
 require_once 'db.php';
 require_login();
 
-$isSuperAdmin = !empty($_SESSION['username']) && $_SESSION['username'] === 'admin';
+$isAdmin = is_admin();
+$isSuperAdmin = is_superadmin();
 
 $countGames = $mysqli->query(
     "SELECT COUNT(*) as c FROM resultados"
@@ -19,7 +20,7 @@ $countAgenda = $mysqli->query(
 
 $countUsers = 0;
 $usersResult = null;
-if ($isSuperAdmin) {
+if ($isAdmin) {
     $countUsers = $mysqli->query(
         "SELECT COUNT(*) as c FROM utilizadores"
     )->fetch_assoc()['c'] ?? 0;
@@ -40,7 +41,9 @@ include 'includes/header.php';
             <a href="resultados.php">Gestão de Resultados</a>
             <a href="news.php">Gestão de Notícias</a>
             <a href="agenda.php">Gestão de Agenda</a>
-            <a href="users.php">Gestão de Utilizadores</a>
+            <?php if ($isAdmin): ?>
+                <a href="users.php">Gestão de Utilizadores</a>
+            <?php endif; ?>
             <a href="logout.php" class="danger">Terminar sessão</a>
         </nav>
         <a class="admin-sidebar-cta" href="../index.php">Ver site</a>
@@ -85,7 +88,7 @@ include 'includes/header.php';
                 </a>
             </article>
 
-            <?php if ($isSuperAdmin): ?>
+            <?php if ($isAdmin): ?>
             <article class="admin-card">
                 <div class="admin-card-title">Utilizadores</div>
                 <div class="admin-card-metric">
@@ -98,7 +101,6 @@ include 'includes/header.php';
             <?php endif; ?>
         </div>
 
-        
     </section>
 </div>
 

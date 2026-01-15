@@ -3,10 +3,11 @@ require_once 'auth.php';
 require_once 'db.php';
 require_login();
 
-if (!is_superadmin()) {
+if (!is_admin()) {
     http_response_code(403);
-    die('Acesso negado. Apenas o super admin pode gerir utilizadores.');
+    die('Acesso negado. Apenas o administrador pode gerir utilizadores.');
 }
+$isSuperAdmin = is_superadmin();
 
 $result = $mysqli->query("SELECT id, username, email, role, criado_em FROM utilizadores ORDER BY id DESC");
 if (!$result) {

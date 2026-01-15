@@ -3,7 +3,7 @@ require_once 'auth.php';
 require_once 'db.php';
 require_login();
 
-if (!is_superadmin()) {
+if (!is_admin()) {
     http_response_code(403);
     die('Acesso negado.');
 }

@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ . '/../auth.php';
+$showUsersLink = is_admin();
+?>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -18,10 +22,11 @@
         <a href="resultados.php">Resultados</a>
         <a href="news.php">Notícias</a>
         <a href="agenda.php">Agenda</a>
-        <a href="users.php">Utilizadores</a>
+        <?php if ($showUsersLink): ?>
+            <a href="users.php">Utilizadores</a>
+        <?php endif; ?>
         <a href="logout.php" class="logout-btn">Terminar Sessão</a>
     </nav>
 </header>
 
 <div class="admin-content">
-

@@ -1,9 +1,9 @@
 <?php
-session_start();
+require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/db.php';
 
-// Proteção: só admin
-if (!isset($_SESSION['username']) || $_SESSION['username'] !== 'admin') {
+require_login();
+if (!is_admin()) {
     http_response_code(403);
     die("Acesso negado. Apenas o administrador pode gerir notícias.");
 }

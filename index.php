@@ -180,7 +180,7 @@ $prox = $proxRes->fetch_assoc();
     </div>
 </section>
 
-<?php if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin'): ?>
+<?php if (!empty($_SESSION['role']) && in_array($_SESSION['role'], ['admin', 'superadmin'], true)): ?>
 <div class="admin-actions">
     <a href="admin/dashboard.php" class="admin-btn">Dashboard</a>
 
