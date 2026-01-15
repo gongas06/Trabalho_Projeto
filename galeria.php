@@ -67,7 +67,54 @@ $result = $mysqli->query("SELECT * FROM galeria WHERE categoria = 'comunidade' O
         <p>Ainda não há imagens nesta secção.</p>
     <?php endif; ?>
 
+
 <?php include 'footer.php'; ?>
 
   <script src="Menu.js"></script>
+  <script>
+    const lightbox = document.getElementById("galeriaLightbox");
+    const lightboxImg = lightbox ? lightbox.querySelector("img") : null;
+    const closeBtn = lightbox ? lightbox.querySelector(".galeria-lightbox-fechar") : null;
+
+    const openLightbox = (src, alt) => {
+      if (!lightbox || !lightboxImg) return;
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || "";
+      lightbox.classList.add("ativo");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    };
+
+    const closeLightbox = () => {
+      if (!lightbox || !lightboxImg) return;
+      lightbox.classList.remove("ativo");
+      lightbox.setAttribute("aria-hidden", "true");
+      lightboxImg.src = "";
+      document.body.style.overflow = "";
+    };
+
+    document.querySelectorAll(".galeria-item img").forEach((img) => {
+      img.addEventListener("click", () => {
+        openLightbox(img.src, img.alt);
+      });
+    });
+
+    if (lightbox) {
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) {
+          closeLightbox();
+        }
+      });
+    }
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", closeLightbox);
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+    });
+  </script>
 </html>

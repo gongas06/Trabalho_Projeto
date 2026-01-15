@@ -2080,21 +2080,58 @@ h1 {
     margin: 60px 0;
 }
 
-.resultados-grid {
+.ultimos-resultados .resultados-carousel {
     display: flex;
-    gap: 25px;
-    justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
 }
 
-.resultado-card {
+.ultimos-resultados .carousel-btn {
+    border: none;
+    background: #c7372f;
+    color: #fff;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+.ultimos-resultados .carousel-btn:hover {
+    background: #a82d27;
+}
+
+.ultimos-resultados .resultados-grid {
+    display: flex;
+    gap: 25px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 10px 6px 18px;
+    scrollbar-width: thin;
+}
+
+.ultimos-resultados .resultados-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.ultimos-resultados .resultados-grid::-webkit-scrollbar-thumb {
+    background: #d2d2d2;
+    border-radius: 999px;
+}
+
+.ultimos-resultados .resultado-card {
     background: white;
     border-radius: 16px;
     padding: 30px;
     width: 320px;
+    flex: 0 0 320px;
     display: flex;
     justify-content: center;
     align-items: center;
+    scroll-snap-align: center;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
 

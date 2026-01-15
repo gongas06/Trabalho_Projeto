@@ -892,6 +892,40 @@ session_start();
       <div class="extra">🇵🇹  | #18</div>
     </div>
 
+<!-- Modal Miguel Cunha -->
+<div id="modal-Miguel_Cunha" class="modal">
+  <div class="modal-conteudo-ficha">
+    <span class="fechar" onclick="fecharModal('Miguel_Cunha')">&times;</span>
+    <div class="ficha-header">
+      <img src="Imagens/Equipa/Jogadores/Imagem_Jogador_Miguel_Cunha.jpeg" alt="Miguel Cunha">
+      <div>
+        <h2>Miguel Cunha</h2>
+        <p><strong>Modalidade:</strong> Futebol</p>
+        <p><strong>Clube Atual:</strong> AD Ponte da Barca</p>
+      </div>
+    </div>
+    <hr>
+    <div class="ficha-bio">
+      <h3>BIO</h3>
+      <p><strong>Nome completo:</strong> Miguel Jose Silva Cunha</p>
+      <p><strong>Data de nascimento:</strong> 28 de fevereiro de 2005</p>
+      <p><strong>Nacionalidade:</strong> Portuguesa</p>
+      <p><strong>Posição:</strong>Avançado</p>
+      <p><strong>Número:</strong> </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- Card Miguel Cunha -->  
+    <div class="jogador-card" onclick="abrirModal('Miguel_Cunha')">
+      <img src="Imagens/Equipa/Jogadores/Imagem_Jogador_Miguel_Cunha.jpeg" alt="Jogador" class="foto">
+      <div class="nome">Miguel Cunha</div>
+      <div class="posicao"> Avançado</div>
+      <div class="extra">🇵🇹  | #</div>
+    </div>
+
+
 
   </div> 
 </section>

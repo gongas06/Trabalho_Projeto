@@ -42,3 +42,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   counters.forEach((counter) => observer.observe(counter));
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const grid = document.querySelector(".ultimos-resultados .resultados-grid");
+  const prevBtn = document.querySelector(".ultimos-resultados .carousel-btn.prev");
+  const nextBtn = document.querySelector(".ultimos-resultados .carousel-btn.next");
+
+  if (!grid || !prevBtn || !nextBtn) return;
+
+  const getStep = () => {
+    const card = grid.querySelector(".resultado-card");
+    if (!card) return grid.clientWidth;
+    const styles = window.getComputedStyle(grid);
+    const gap = parseInt(styles.columnGap || styles.gap || "0", 10);
+    return card.offsetWidth + (Number.isNaN(gap) ? 0 : gap);
+  };
+
+  prevBtn.addEventListener("click", () => {
+    grid.scrollBy({ left: -getStep(), behavior: "smooth" });
+  });
+
+  nextBtn.addEventListener("click", () => {
+    grid.scrollBy({ left: getStep(), behavior: "smooth" });
+  });
+});

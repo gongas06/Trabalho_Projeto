@@ -62,30 +62,34 @@ require_once __DIR__ . '/admin/db.php';
         $res = $mysqli->query("SELECT * FROM resultados ORDER BY created_at DESC LIMIT 4");
         ?>
 
-        <div class="resultados-grid">
-        <?php while ($r = $res->fetch_assoc()): ?>
-            <div class="resultado-card">
-                <div class="resultado-equipas">
+        <div class="resultados-carousel">
+            <button class="carousel-btn prev" type="button" aria-label="Resultados anteriores">‹</button>
+            <div class="resultados-grid">
+            <?php while ($r = $res->fetch_assoc()): ?>
+                <div class="resultado-card">
+                    <div class="resultado-equipas">
 
-                    <div class="equipa">
-                        <img src="uploads/<?= htmlspecialchars($r['imagem_casa']); ?>" alt="">
-                        <p><?= htmlspecialchars($r['equipa_casa']); ?></p>
+                        <div class="equipa">
+                            <img src="uploads/<?= htmlspecialchars($r['imagem_casa']); ?>" alt="">
+                            <p><?= htmlspecialchars($r['equipa_casa']); ?></p>
+                        </div>
+
+                        <div class="resultado-score">
+                            <?= $r['golo_casa'] ?> - <?= $r['golo_fora'] ?>
+                        </div>
+
+                        <div class="equipa">
+                            <img src="uploads/<?= htmlspecialchars($r['imagem_fora']); ?>" alt="">
+                            <p><?= htmlspecialchars($r['equipa_fora']); ?></p>
+                        </div>
+
+                        
                     </div>
-
-                    <div class="resultado-score">
-                        <?= $r['golo_casa'] ?> - <?= $r['golo_fora'] ?>
-                    </div>
-
-                    <div class="equipa">
-                        <img src="uploads/<?= htmlspecialchars($r['imagem_fora']); ?>" alt="">
-                        <p><?= htmlspecialchars($r['equipa_fora']); ?></p>
-                    </div>
-
-                    
                 </div>
-            </div>
-        <?php endwhile; ?>
+            <?php endwhile; ?>
 
+            </div>
+            <button class="carousel-btn next" type="button" aria-label="Próximos resultados">›</button>
         </div>
     </div>
 </section>
@@ -180,15 +184,8 @@ $prox = $proxRes->fetch_assoc();
 <?php endif; ?>
 
 <?php include 'footer.php'; ?>
-<script>
-
-document.getElementById("hamburger").addEventListener("click", () => {
-  document.getElementById("navMenu").classList.toggle("ativo");
-});
-</script>
+<script src="Menu.js"></script>
 
 </body>
 </html>
-
-
 
