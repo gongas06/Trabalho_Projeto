@@ -9,15 +9,16 @@
 
 <header class="admin-header">
     <div class="admin-logo-area">
-        <img src="../Imagens/Logos/adpb.png" class="admin-logo">
+        <img src="../Imagens/Gerais/Logotipo ADPB_projeto.png" class="admin-logo">
         <span class="admin-title">Backoffice ADPB</span>
     </div>
 
     <nav class="admin-menu">
         <a href="dashboard.php">Dashboard</a>
-        <a href="games.php">Jogos</a>
+        <a href="resultados.php">Jogos</a>
         <a href="news.php">Notícias</a>
-        <a href="perfil.php">Perfil</a>
+        <a href="agenda.php">Agenda</a>
+        <a href="users.php">Utilizadores</a>
         <a href="logout.php" class="logout-btn">Terminar Sessão</a>
     </nav>
 </header>

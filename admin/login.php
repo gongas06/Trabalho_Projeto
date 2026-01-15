@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!empty($username) && !empty($pass)) {
 
-        $stmt = $mysqli->prepare('SELECT id, username, password FROM utilizadores WHERE username = ? LIMIT 1');
+        $stmt = $mysqli->prepare('SELECT id, username, password, role FROM utilizadores WHERE username = ? LIMIT 1');
         $stmt->bind_param('s', $username);
         $stmt->execute();
         $res = $stmt->get_result();
@@ -23,6 +23,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Sessão normal
                 $_SESSION['user_id'] = $row['id'];
                 $_SESSION['username'] = $row['username'];
+                if ($row['username'] === 'admin') {
+                    $_SESSION['role'] = 'superadmin';
+                } else {
+                    $_SESSION['role'] = $row['role'] ?? 'user';
+                }
 
                 // Sessão temporária só para mostrar o toast
                 $_SESSION['login_message'] = $row['username'];
@@ -91,4 +96,3 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 </body>
 </html>
-

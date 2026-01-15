@@ -9,6 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $equipa_fora = $_POST['equipa_fora'];
     $golo_casa = $_POST['golo_casa'];
     $golo_fora = $_POST['golo_fora'];
+    $competicao = $_POST['competicao'] ?? '';
+    $epoca = $_POST['epoca'] ?? '';
 
     // Criar nomes dos ficheiros
     $imagem_casa = null;
@@ -28,17 +30,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     // Inserir na BD
     $stmt = $mysqli->prepare("
-        INSERT INTO resultados (equipa_casa, equipa_fora, golo_casa, golo_fora, imagem_casa, imagem_fora)
-        VALUES (?, ?, ?, ?, ?, ?)
+        INSERT INTO resultados (equipa_casa, equipa_fora, golo_casa, golo_fora, imagem_casa, imagem_fora, competicao, epoca)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     ");
 
-    $stmt->bind_param("ssiiss",
+    $stmt->bind_param("ssiissss",
         $equipa_casa,
         $equipa_fora,
         $golo_casa,
         $golo_fora,
         $imagem_casa,
-        $imagem_fora
+        $imagem_fora,
+        $competicao,
+        $epoca
     );
 
     $stmt->execute();
@@ -47,5 +51,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 echo "Erro!";
-
 

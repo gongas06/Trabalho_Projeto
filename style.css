@@ -554,6 +554,267 @@ h1 {
 .admin-opcoes button:hover {
   background: var(--vermelho-escuro);
 }
+
+/* Admin layout */
+.admin-bg {
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 28px;
+  background: #ffffff;
+  border-bottom: 2px solid var(--vermelho);
+}
+
+.admin-logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.admin-title {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.admin-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.admin-menu a {
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: 600;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin-menu a:hover {
+  background: #fdecec;
+  color: var(--vermelho);
+}
+
+.admin-menu .logout-btn {
+  background: var(--vermelho);
+  color: #ffffff;
+}
+
+.admin-menu .logout-btn:hover {
+  background: var(--vermelho-escuro);
+  color: #ffffff;
+}
+
+.admin-content {
+  max-width: 1200px;
+  margin: 26px auto 60px;
+  padding: 0 24px;
+}
+
+.admin-footer {
+  text-align: center;
+}
+
+.admin-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.admin-sidebar {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px 18px;
+  box-shadow: 0 10px 30px rgba(199, 27, 27, 0.08);
+  border: 1px solid #f3c7c7;
+  position: sticky;
+  top: 20px;
+}
+
+.admin-sidebar-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--vermelho);
+  margin-bottom: 14px;
+}
+
+.admin-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.admin-sidebar-nav a {
+  text-decoration: none;
+  color: #1f2937;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.admin-sidebar-nav a:hover {
+  background: #fdecec;
+  color: var(--vermelho);
+}
+
+.admin-sidebar-nav a.active {
+  background: #ffe5e5;
+  color: var(--vermelho);
+  box-shadow: inset 0 0 0 1px #f3bcbc;
+}
+
+.admin-sidebar-nav a.danger {
+  color: #7f1d1d;
+}
+
+.admin-sidebar-cta {
+  margin-top: 18px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  background: var(--vermelho);
+  color: #ffffff;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.admin-sidebar-cta:hover {
+  background: var(--vermelho-escuro);
+}
+
+.admin-main {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 12px 30px rgba(199, 27, 27, 0.08);
+  border: 1px solid #f3c7c7;
+}
+
+.admin-main-header h2 {
+  font-size: 1.6rem;
+  margin-bottom: 6px;
+}
+
+.admin-main-header p {
+  color: #475569;
+}
+
+.admin-section {
+  margin-top: 28px;
+}
+
+.admin-section h3 {
+  margin-bottom: 12px;
+  color: var(--vermelho);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #ffffff;
+  border: 1px solid #f2bcbc;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px;
+  border-bottom: 1px solid #f6d5d5;
+  text-align: left;
+}
+
+.admin-table th {
+  background: #ffecec;
+  color: #7a1b1b;
+}
+
+.admin-table tr:last-child td {
+  border-bottom: none;
+}
+
+.admin-table-note {
+  margin-top: 8px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}
+
+.admin-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.admin-card {
+  border-radius: 16px;
+  padding: 18px;
+  background: #fff5f5;
+  border: 1px solid #f2bcbc;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-card-title {
+  font-weight: 700;
+  color: var(--vermelho);
+}
+
+.admin-card-metric {
+  font-size: 1.05rem;
+  color: #1f2937;
+}
+
+.admin-card-link {
+  margin-top: auto;
+  text-decoration: none;
+  color: var(--vermelho);
+  font-weight: 600;
+}
+
+.admin-card-link:hover {
+  color: var(--vermelho-escuro);
+}
+
+@media (max-width: 900px) {
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .admin-header {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .admin-menu {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
 /* =============================== */
 /* ⚽ CORREÇÃO — EQUIPA (FOTOS IGUAIS E GRID AJUSTADA) */
 /* =============================== */
@@ -2907,12 +3168,24 @@ h1 {
   line-height: 1.4;
 }
 
+.noticia-rodape {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
 /* DATA */
 .noticia-data {
-  margin-top: 15px;
   font-size: 14px;
   color: #999;
   text-align: right;
+}
+
+.btn-ler-mais-lista {
+  position: static;
+  align-self: flex-end;
 }
 
 .noticia-destaque {
@@ -2923,19 +3196,15 @@ h1 {
   background-position: center;
   display: flex;
   align-items: center;
-}
-
-.noticia-destaque .overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
+  padding: 0 80px 60px;
 }
 
 .conteudo-destaque {
-  position: relative;
+  position: static;
   max-width: 700px;
-  margin-left: 80px;
+  margin-left: 0;
   color: #fff;
+  text-align: right;
 }
 
 .conteudo-destaque h1 {
@@ -2943,6 +3212,7 @@ h1 {
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 30px;
+  color: #ffffff;
 }
 
 .btn-ler {
@@ -2952,6 +3222,9 @@ h1 {
   text-decoration: none;
   font-weight: 600;
   border-radius: 6px;
+  position: absolute;
+  right: 80px;
+  bottom: 60px;
 }
 
 .btn-ler:hover {
