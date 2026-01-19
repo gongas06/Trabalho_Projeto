@@ -911,7 +911,7 @@ session_start();
       <p><strong>Data de nascimento:</strong> 28 de fevereiro de 2005</p>
       <p><strong>Nacionalidade:</strong> Portuguesa</p>
       <p><strong>Posição:</strong>Avançado</p>
-      <p><strong>Número:</strong> </p>
+      <p><strong>Número:</strong> 16</p>
     </div>
   </div>
 </div>
@@ -922,7 +922,7 @@ session_start();
       <img src="Imagens/Equipa/Jogadores/Imagem_Jogador_Miguel_Cunha.jpeg" alt="Jogador" class="foto">
       <div class="nome">Miguel Cunha</div>
       <div class="posicao"> Avançado</div>
-      <div class="extra">🇵🇹  | #</div>
+      <div class="extra">🇵🇹  | #16</div>
     </div>
 
 

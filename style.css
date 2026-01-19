@@ -1324,7 +1324,7 @@ h1 {
     flex-direction: column;
     background-color: #b90000;
     position: absolute;
-    top: 90px;
+    top: 100%;
     left: 0;
     width: 100%;
     text-align: center;
@@ -3006,7 +3006,7 @@ h1 {
         background: #c1272d;
         padding: 20px 0;
         position: absolute;
-        top: 90px;
+        top: 100%;
         left: 0;
     }
 
@@ -3196,15 +3196,17 @@ h1 {
   background-position: center;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   padding: 0 80px 60px;
 }
 
 .conteudo-destaque {
   position: static;
   max-width: 700px;
-  margin-left: auto;
+  margin-left: 0;
+  margin-right: auto;
   color: #fff;
-  text-align: right;
+  text-align: left;
 }
 
 .conteudo-destaque h1 {

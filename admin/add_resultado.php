@@ -81,13 +81,13 @@ require_login();
         </div>
 
         <div class="form-row">
-            <label>Imagem Casa (opcional)</label>
-            <input type="file" name="imagem_casa" accept="image/*">
+            <label>Imagem Casa</label>
+            <input type="file" name="imagem_casa" accept="image/*" required>
         </div>
 
         <div class="form-row">
-            <label>Imagem Fora (opcional)</label>
-            <input type="file" name="imagem_fora" accept="image/*">
+            <label>Imagem Fora </label>
+            <input type="file" name="imagem_fora" accept="image/*" required>
         </div>
 
         <button type="submit" class="btn">Guardar</button>
