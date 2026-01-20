@@ -24,34 +24,40 @@ if (!$user) {
 <head>
     <meta charset="UTF-8">
     <title>Editar Perfil</title>
+    <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body class="perfil-body">
 
-<h2>Editar Perfil</h2>
+<div class="perfil-container">
+    <div class="perfil-card">
+        <h2>Editar Perfil</h2>
 
-<form action="atualizar.php" method="POST" enctype="multipart/form-data">
+        <form action="atualizar.php" method="POST" enctype="multipart/form-data">
 
-    <input type="hidden" name="id" value="<?= $user['id'] ?>">
+            <input type="hidden" name="id" value="<?= $user['id'] ?>">
 
-    <label>Username</label><br>
-    <input type="text" name="username" value="<?= htmlspecialchars($user['username']) ?>" required><br><br>
+            <label>Username</label>
+            <input type="text" name="username" value="<?= htmlspecialchars($user['username']) ?>" required>
 
-    <label>Email</label><br>
-    <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required><br><br>
+            <label>Email</label>
+            <input type="email" name="email" value="<?= htmlspecialchars($user['email']) ?>" required>
 
-    <label>Nova password (opcional)</label><br>
-    <input type="password" name="password"><br><br>
+            <label>Nova password (opcional)</label>
+            <input type="password" name="password">
 
-    <?php if (!empty($user['foto'])): ?>
-        <img src="../uploads/perfis/<?= htmlspecialchars($user['foto']) ?>"
-             width="120" style="border-radius:50%;"><br><br>
-    <?php endif; ?>
+            <?php if (!empty($user['foto'])): ?>
+                <img src="../uploads/perfis/<?= htmlspecialchars($user['foto']) ?>"
+                     alt="Foto de perfil" width="120" style="border-radius:50%; margin-top:12px;">
+            <?php endif; ?>
 
-    <label>Nova foto de perfil</label><br>
-    <input type="file" name="foto" accept="image/*"><br><br>
+            <label>Nova foto de perfil</label>
+            <input type="file" name="foto" accept="image/*">
 
-    <button type="submit">Guardar Alterações</button>
-</form>
+            <button type="submit" class="botao-vermelho">Guardar Alteracoes</button>
+            <a href="perfil.php" class="botao-preto" style="margin-left:10px;">Cancelar</a>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

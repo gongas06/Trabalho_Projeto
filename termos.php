@@ -9,6 +9,7 @@
 <body class="termos-body">
 
   <header class="termos-header">
+    <a href="index.php" class="back-button">← Voltar ao site</a>
     <img src="Imagens/Gerais/Logotipo ADPB_projeto.png" alt="Logotipo ADPB" class="logo-termos">
     <h1>Termos de Utilização</h1>
   </header>

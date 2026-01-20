@@ -8,6 +8,8 @@
 </head>
 <body class="pagina-texto">
 
+  <a href="index.php" class="back-button">← Voltar ao site</a>
+
   <main class="container texto-legal">
     <h1>Política de Privacidade e Cookies</h1>
 

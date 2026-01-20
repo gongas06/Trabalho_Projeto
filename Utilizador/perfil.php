@@ -105,6 +105,7 @@ $foto = !empty($user['foto']) ? $user['foto'] : 'default.png';
 </head>
 <body>
 
+
 <div class="perfil-container">
 
     <h2>Perfil de <?= htmlspecialchars($user['username']); ?></h2>
@@ -132,6 +133,5 @@ $foto = !empty($user['foto']) ? $user['foto'] : 'default.png';
 
 </body>
 </html>
-
 
 

@@ -18,6 +18,10 @@ $countAgenda = $mysqli->query(
     "SELECT COUNT(*) as c FROM agenda"
 )->fetch_assoc()['c'] ?? 0;
 
+$countGaleria = $mysqli->query(
+    "SELECT COUNT(*) as c FROM galeria"
+)->fetch_assoc()['c'] ?? 0;
+
 $countUsers = 0;
 $usersResult = null;
 if ($isAdmin) {
@@ -41,6 +45,7 @@ include 'includes/header.php';
             <a href="resultados.php">Gestão de Resultados</a>
             <a href="news.php">Gestão de Notícias</a>
             <a href="agenda.php">Gestão de Agenda</a>
+            <a href="galeria.php">Gestão da Galeria</a>
             <?php if ($isAdmin): ?>
                 <a href="users.php">Gestão de Utilizadores</a>
             <?php endif; ?>
@@ -85,6 +90,16 @@ include 'includes/header.php';
                 </div>
                 <a href="agenda.php" class="admin-card-link">
                     Gerir Agenda
+                </a>
+            </article>
+
+            <article class="admin-card">
+                <div class="admin-card-title">Galeria</div>
+                <div class="admin-card-metric">
+                    <?= (int)$countGaleria; ?> fotos
+                </div>
+                <a href="galeria.php" class="admin-card-link">
+                    Gerir Galeria
                 </a>
             </article>
 

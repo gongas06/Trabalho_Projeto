@@ -22,6 +22,7 @@ $showUsersLink = is_admin();
         <a href="resultados.php">Resultados</a>
         <a href="news.php">Notícias</a>
         <a href="agenda.php">Agenda</a>
+        <a href="galeria.php">Galeria</a>
         <?php if ($showUsersLink): ?>
             <a href="users.php">Utilizadores</a>
         <?php endif; ?>
