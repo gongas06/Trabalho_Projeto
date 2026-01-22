@@ -53,8 +53,10 @@ if (!$user) {
             <label>Nova foto de perfil</label>
             <input type="file" name="foto" accept="image/*">
 
-            <button type="submit" class="botao-vermelho">Guardar Alteracoes</button>
-            <a href="perfil.php" class="botao-preto" style="margin-left:10px;">Cancelar</a>
+            <div class="perfil-acoes">
+                <button type="submit" class="botao-vermelho">Guardar Alteracoes</button>
+                <a href="perfil.php" class="botao-preto">Cancelar</a>
+            </div>
         </form>
     </div>
 </div>

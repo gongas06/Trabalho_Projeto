@@ -101,10 +101,30 @@ $foto = !empty($user['foto']) ? $user['foto'] : 'default.png';
         .botao-editar:hover {
             background: #a00d25;
         }
+
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            background: #c71b1b;
+            padding: 8px 16px;
+            border-radius: 999px;
+            box-shadow: 0 6px 14px rgba(199, 27, 27, 0.25);
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .back-button:hover {
+            background: #9f1212;
+            transform: translateY(-1px);
+        }
     </style>
 </head>
 <body>
 
+<a href="../index.php" class="back-button">← Voltar ao site</a>
 
 <div class="perfil-container">
 
@@ -133,5 +153,3 @@ $foto = !empty($user['foto']) ? $user['foto'] : 'default.png';
 
 </body>
 </html>
-
-
