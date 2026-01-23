@@ -61,7 +61,7 @@ session_start();
     <div class="ficha-header">
       <img src="Imagens/Equipa/Jogadores/Imagem_Jogador_Helder_Cerqueira.jpeg" alt="Helder Cerqueira">
       <div>
-        <h2>Helder Cerqueira</h2>
+        <h2>Hélder Cerqueira</h2>
         <p><strong>Modalidade:</strong> Futebol</p>
         <p><strong>Clube Atual:</strong> AD Ponte da Barca</p>
       </div>
@@ -82,7 +82,7 @@ session_start();
   <div class="equipa-grid">
     <div class="jogador-card" onclick="abrirModal('helder')">
       <img src="Imagens/Equipa/Jogadores/Imagem_Jogador_Helder_Cerqueira.jpeg" alt="Jogador" class="foto">
-      <div class="nome">Helder Cerqueira</div>
+      <div class="nome">Hélder Cerqueira</div>
       <div class="posicao"> Guarda-Redes</div>
       <div class="extra">🇵🇹  | #1</div>
     </div>
@@ -240,7 +240,7 @@ session_start();
     <hr>
     <div class="ficha-bio">
       <h3>BIO</h3>
-      <p><strong>Nome completo:</strong> Wilson Andre Rodrigues Alves</p>
+      <p><strong>Nome completo:</strong> Wilson André Rodrigues Alves</p>
       <p><strong>Data de nascimento:</strong> 9 de fevereiro de 2002</p>
       <p><strong>Nacionalidade:</strong> Portuguesa</p>
       <p><strong>Posição:</strong> Defesa</p>
@@ -309,7 +309,7 @@ session_start();
     <hr>
     <div class="ficha-bio">
       <h3>BIO</h3>
-      <p><strong>Nome completo:</strong> David Manuel Fernades Carvalho</p>
+      <p><strong>Nome completo:</strong> David Manuel Fernandes Carvalho</p>
       <p><strong>Data de nascimento:</strong> 8 de fevereiro de 1994</p>
       <p><strong>Nacionalidade:</strong> Portuguesa</p>
       <p><strong>Posição:</strong> Defesa</p>
@@ -445,7 +445,7 @@ session_start();
     <hr>
     <div class="ficha-bio">
       <h3>BIO</h3>
-      <p><strong>Nome completo:</strong> Goncalo Cerqueira Matos</p>
+      <p><strong>Nome completo:</strong> Gonçalo Cerqueira Matos</p>
       <p><strong>Data de nascimento:</strong> 13 de janeiro de 2003</p>
       <p><strong>Nacionalidade:</strong>Portuguesa</p>
       <p><strong>Posição:</strong> Médio</p>
@@ -479,7 +479,7 @@ session_start();
     <hr>
     <div class="ficha-bio">
       <h3>BIO</h3>
-      <p><strong>Nome completo:</strong> Jose Fernando Sousa Rego</p>
+      <p><strong>Nome completo:</strong> José Fernando Sousa Rego</p>
       <p><strong>Data de nascimento:</strong> 20 de abril de 1996</p>
       <p><strong>Nacionalidade:</strong> Portuguesa</p>
       <p><strong>Posição:</strong> Médio</p>
@@ -677,7 +677,7 @@ session_start();
     <hr>
     <div class="ficha-bio">
       <h3>BIO</h3>
-      <p><strong>Nome completo:</strong> Joao Miguel Araujo Silva</p>
+      <p><strong>Nome completo:</strong> João Miguel Araújo Silva</p>
       <p><strong>Data de nascimento:</strong> 2 de setembro de 2006</p>
       <p><strong>Nacionalidade:</strong> Portuguesa</p>
       <p><strong>Posição:</strong> Médio</p>
@@ -776,7 +776,7 @@ session_start();
     <hr>
     <div class="ficha-bio">
       <h3>BIO</h3>
-      <p><strong>Nome completo:</strong> Luis Miguel Monteiro Guerra</p>
+      <p><strong>Nome completo:</strong> Luís Miguel Monteiro Guerra</p>
       <p><strong>Data de nascimento:</strong> 1 de março de 2000</p>
       <p><strong>Nacionalidade:</strong> Portuguesa</p>
       <p><strong>Posição:</strong> Avançado</p>
@@ -866,7 +866,7 @@ session_start();
     <div class="ficha-header">
       <img src="Imagens/Equipa/Jogadores/Imagem_Jogador_Claúdio.jpeg" alt="José Rego">
       <div>
-        <h2>Claudio Dantas</h2>
+        <h2>Claúdio Dantas</h2>
         <p><strong>Modalidade:</strong> Futebol</p>
         <p><strong>Clube Atual:</strong> AD Ponte da Barca</p>
       </div>
@@ -874,7 +874,7 @@ session_start();
     <hr>
     <div class="ficha-bio">
       <h3>BIO</h3>
-      <p><strong>Nome completo:</strong> Claudio Alexandre Lamas Corredoura Dantas</p>
+      <p><strong>Nome completo:</strong> Claúdio Alexandre Lamas Corredoura Dantas</p>
       <p><strong>Data de nascimento:</strong> 18 de abril de 1995</p>
       <p><strong>Nacionalidade:</strong> Portuguesa</p>
       <p><strong>Posição:</strong>Avançado</p>
@@ -907,7 +907,7 @@ session_start();
     <hr>
     <div class="ficha-bio">
       <h3>BIO</h3>
-      <p><strong>Nome completo:</strong> Miguel Jose Silva Cunha</p>
+      <p><strong>Nome completo:</strong> Miguel José Silva Cunha</p>
       <p><strong>Data de nascimento:</strong> 28 de fevereiro de 2005</p>
       <p><strong>Nacionalidade:</strong> Portuguesa</p>
       <p><strong>Posição:</strong>Avançado</p>

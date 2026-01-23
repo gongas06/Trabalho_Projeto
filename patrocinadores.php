@@ -11,28 +11,6 @@
   <header class="topo">
     <img src="Imagens/Gerais/Logotipo ADPB_projeto.png" alt="Logotipo ADPB" class="logo">
     <nav class="nav-principal">
-      <ul>
-        <li><a href="index.php">Início</a></li>
-        <li><a href="história.php">História</a></li>
-        <li><a href="noticias.php">Noticias</a></li>
-        <li><a href="resultados.php">Resultados</a></li>
-        <li><a href="agenda.php">Agenda</a></li>
-        <li><a href="Equipa.php">Equipa</a></li>
-        <li><a href="galeria.php">Galeria</a></li>
-        <li><a href="contactos.php">Contactos</a></li>
-
-
-    <?php if(isset($_SESSION['username'])): ?>
-        <li class="user-info">
-          <a href="Utilizador/perfil.php"><?= $_SESSION['username']; ?></a>
-          <a href="admin/logout.php" class="logout-link">Sair</a>
-        </li>
-      <?php else: ?>
-        <li><a href="admin/login.php">Entrar</a></li>
-      <?php endif; ?>
-
-      </ul>
-    </nav>
   </header>
 
   <main class="container patrocinadores-container">
@@ -63,13 +41,7 @@
       <img src="Imagens/Patrocinadores/Patrocinador 19.svg" alt="Patrocinador 19">
     </div>
 
-  
-  <footer class="rodape">
-    <p>© <span id="ano"></span> Associação Desportiva de Ponte da Barca</p>
-  </footer>
+<?php include 'footer.php'; ?>
 
-  <script>
-    document.getElementById("ano").textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
