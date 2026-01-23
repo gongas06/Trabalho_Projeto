@@ -8,11 +8,7 @@
 </head>
 <body class="pagina-patrocinadores">
 
-  <header class="topo">
-    <img src="Imagens/Gerais/Logotipo ADPB_projeto.png" alt="Logotipo ADPB" class="logo">
-    <nav class="nav-principal">
-  </header>
-
+  
   <main class="container patrocinadores-container">
     <h1>Patrocinadores Oficiais</h1>
     <p class="descricao-patrocinadores">
@@ -41,7 +37,8 @@
       <img src="Imagens/Patrocinadores/Patrocinador 19.svg" alt="Patrocinador 19">
     </div>
 
-<?php include 'footer.php'; ?>
+    <a href="index.php" class="back-button">← Voltar ao site</a>
+
 
 </body>
 </html>

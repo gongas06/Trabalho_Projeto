@@ -1075,6 +1075,11 @@ h1 {
   font-size: 1.6em;
 }
 
+.form-login p {
+  margin: 0 0 16px;
+  text-align: center;
+}
+
 .form-login input {
   width: 100%;
   padding: 10px;
@@ -1448,6 +1453,7 @@ h1 {
   transform: scale(1.07);
   box-shadow: 0 4px 14px rgba(0,0,0,0.2);
 }
+
 
 /* BOTÃO VOLTAR */
 .botao-voltar {
