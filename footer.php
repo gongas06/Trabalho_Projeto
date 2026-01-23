@@ -17,6 +17,10 @@
       </ul>
     </div>
 
+    <div class="footer-section footer-cta-section">
+      <a href="patrocinadores.php" class="footer-cta">Patrocinadores</a>
+    </div>
+
     <div class="footer-section">
       <h3>Redes Sociais</h3>
       <div class="social-icons">
@@ -81,6 +85,11 @@
   text-decoration: underline;
 }
 
+.footer-cta-section {
+  display: flex;
+  align-items: center;
+}
+
 .social-icons img {
   width: 45px;
   margin-right: 10px;
@@ -94,12 +103,29 @@
   justify-content: space-between;
   flex-wrap: wrap;
   font-size: 13px;
+  gap: 12px;
 }
 
 .footer-links a {
   color: #fff;
   text-decoration: none;
   margin: 0 5px;
+}
+
+.footer-cta {
+  background: #c1272d;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 26px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.footer-cta:hover {
+  background: #9e1b20;
 }
 
 </style>
