@@ -1076,7 +1076,7 @@ h1 {
 }
 
 .form-login p {
-  margin: 0 0 16px;
+  margin: 0 0 24px;
   text-align: center;
 }
 
@@ -1453,7 +1453,6 @@ h1 {
   transform: scale(1.07);
   box-shadow: 0 4px 14px rgba(0,0,0,0.2);
 }
-
 
 /* BOTÃO VOLTAR */
 .botao-voltar {

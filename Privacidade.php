@@ -53,5 +53,7 @@
     Para mais informações sobre privacidade ou cookies, contacte-nos através de <a href="mailto:geral@adpb.pt">geral@adpb.pt</a>.</p>
   </main>
 
+<?php include 'footer.php'; ?>
+
 </body>
 </html>

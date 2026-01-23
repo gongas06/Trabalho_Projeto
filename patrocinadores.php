@@ -38,7 +38,9 @@
     </div>
 
     <a href="index.php" class="back-button">← Voltar ao site</a>
+</main>
 
+<?php include 'footer.php'; ?>
 
 </body>
 </html>
