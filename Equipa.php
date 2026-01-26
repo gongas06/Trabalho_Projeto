@@ -841,7 +841,7 @@ session_start();
     <hr>
     <div class="ficha-bio">
       <h3>BIO</h3>
-      <p><strong>Nome completo:</strong> Ricardo Inacio Silva Coutinho</p>
+      <p><strong>Nome completo:</strong>  Ricardo Inácio Silva Coutinho</p>
       <p><strong>Data de nascimento:</strong> 2 de novembro de 1989</p>
       <p><strong>Nacionalidade:</strong> Portuguesa</p>
       <p><strong>Posição:</strong> Avançado</p>
