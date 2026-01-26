@@ -712,7 +712,7 @@ session_start();
       <h3>BIO</h3>
       <p><strong>Nome completo:</strong> Bruno Miguel Teixeira Filipe</p>
       <p><strong>Data de nascimento:</strong> 25 de agosto de 1998</p>
-      <p><strong>Nacionalidade:</strong> Português </p>
+      <p><strong>Nacionalidade:</strong> Portuguesa </p>
       <p><strong>Posição:</strong> Médio</p>
       <p><strong>Número:</strong> 10</p>
     </div>

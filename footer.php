@@ -4,7 +4,7 @@
     <div class="footer-section">
       <h3>Contactos</h3>
       <p><strong>Morada:</strong> Bairro Stº Antonio</p>
-      <p><strong>Telefone:</strong> 969810274</p>
+      <p><strong>Telefone:</strong> +351969810274</p>
       <p><strong>Email:</strong> adpbarca@gmail.com</p>
     </div>
 
