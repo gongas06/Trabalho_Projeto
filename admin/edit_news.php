@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = trim($_POST['title'] ?? '');
     $body = trim($_POST['body'] ?? '');
     $published_at = trim($_POST['published_at'] ?? '');
+    $destaque = isset($_POST['destaque']) ? 1 : 0;
     if ($published_at === '') $published_at = date('Y-m-d H:i:s');
 
     if ($title === '' || $body === '') {
@@ -53,8 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         if (!$err) {
-            $u = $mysqli->prepare("UPDATE noticias SET title=?, body=?, published_at=?, image=? WHERE id=?");
-            $u->bind_param('ssssi', $title, $body, $published_at, $image_name, $id);
+            $u = $mysqli->prepare("UPDATE noticias SET title=?, body=?, published_at=?, image=?, destaque=? WHERE id=?");
+            $u->bind_param('ssssii', $title, $body, $published_at, $image_name, $destaque, $id);
             if ($u->execute()) {
                 $msg = 'Notícia atualizada com sucesso.';
                 // refresh news data
@@ -62,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $news['body'] = $body;
                 $news['published_at'] = $published_at;
                 $news['image'] = $image_name;
+                $news['destaque'] = $destaque;
             } else {
                 $err = 'Erro ao atualizar: ' . $u->error;
             }
@@ -110,6 +112,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
       <label>Data de publicação (opcional)</label>
       <input type="text" name="published_at" value="<?php echo htmlspecialchars($news['published_at']); ?>">
+
+      <label>
+        <input type="checkbox" name="destaque" value="1" <?php if (!empty($news['destaque'])) echo 'checked'; ?>>
+        Colocar esta notícia em destaque
+      </label>
 
       <div style="margin-top:12px;">
         <button class="btn" type="submit">Guardar Alterações</button>
