@@ -54,7 +54,7 @@ include 'includes/header.php';
 
         <div style="margin-top:12px;">
         <button class="btn" type="submit">Guardar Alterações</button>
-        <a href="news.php" class="btn" style="background:#444; margin-left:8px; text-decoration:none; display:inline-block;">Voltar</a>
+        <a href="resultados.php" class="btn" style="background:#444; margin-left:8px; text-decoration:none; display:inline-block;">Voltar</a>
       </div>
     </form>
 </div>
