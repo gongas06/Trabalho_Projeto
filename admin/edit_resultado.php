@@ -14,19 +14,11 @@ $r = $res->fetch_assoc();
 include 'includes/header.php';
 ?>
 
-<h3>Editar Resultado</h3>
+<div class="container admin-edit">
+    <h1>Editar Resultado</h1>
 
-<form action="edit_resultado_submit.php" method="POST" enctype="multipart/form-data">
-
-    <input type="hidden" name="id" value="<?= $r['id'] ?>">
-include 'includes/header.php';
-?>
-
-<h3>Editar Resultado</h3>
-
-<form action="edit_resultado_submit.php" method="POST" enctype="multipart/form-data">
-
-    <input type="hidden" name="id" value="<?= $r['id'] ?>">
+    <form action="edit_resultado_submit.php" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="id" value="<?= $r['id'] ?>">
 
     <div class="mb-3">
         <label>Equipa da Casa</label>
@@ -48,14 +40,23 @@ include 'includes/header.php';
         <input class="form-control" type="number" name="golo_fora" value="<?= $r['golo_fora'] ?>" required>
     </div>
 
-    <p><strong>Imagem Casa atual:</strong> <?= $r['imagem_casa'] ?: "Nenhuma" ?></p>
-    <input type="file" class="form-control mb-3" name="imagem_casa">
+    <div class="mb-3">
+        <label>Imagem Casa atual</label>
+        <p><?= $r['imagem_casa'] ?: "Nenhuma" ?></p>
+        <input type="file" class="form-control" name="imagem_casa">
+    </div>
 
-    <p><strong>Imagem Fora atual:</strong> <?= $r['imagem_fora'] ?: "Nenhuma" ?></p>
-    <input type="file" class="form-control mb-3" name="imagem_fora">
+    <div class="mb-3">
+        <label>Imagem Fora atual</label>
+        <p><?= $r['imagem_fora'] ?: "Nenhuma" ?></p>
+        <input type="file" class="form-control" name="imagem_fora">
+    </div>
 
-    <button class="btn btn-primary">Guardar Alterações</button>
-
-</form>
+        <div style="margin-top:12px;">
+        <button class="btn" type="submit">Guardar Alterações</button>
+        <a href="news.php" class="btn" style="background:#444; margin-left:8px; text-decoration:none; display:inline-block;">Voltar</a>
+      </div>
+    </form>
+</div>
 
 <?php include 'includes/footer.php'; ?>

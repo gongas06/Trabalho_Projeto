@@ -37,7 +37,6 @@ if (!$item) {
         padding: 20px;
         font-family: Arial, sans-serif;
     }
-    .topbar { display:flex; justify-content:space-between; align-items:center; }
     .btn {
         background:#b80000;
         color:#fff;
@@ -69,13 +68,7 @@ if (!$item) {
 <body>
 
 <div class="container">
-    <div class="topbar">
-        <h1>Editar Foto ou Video</h1>
-        <div>
-            <a class="btn" href="galeria.php">Voltar à Galeria</a>
-            <a class="btn secondary" href="dashboard.php">Voltar ao Dashboard</a>
-        </div>
-    </div>
+    <h1>Editar Foto ou Video</h1>
 
     <form action="edit_galeria_submit.php" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="id" value="<?= (int)$item['id'] ?>">
@@ -110,7 +103,10 @@ if (!$item) {
             <input type="text" name="categoria" value="<?= htmlspecialchars($item['categoria'] ?? '') ?>" required>
         </div>
 
-        <button type="submit" class="btn">Guardar</button>
+        <div style="margin-top:12px;">
+            <button type="submit" class="btn">Guardar Alterações</button>
+            <a class="btn secondary" href="galeria.php" style="margin-left:8px;">Voltar</a>
+        </div>
     </form>
 </div>
 

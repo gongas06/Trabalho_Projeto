@@ -49,7 +49,7 @@ include "includes/header.php";
             </div>
 
             <button class="btn btn-primary">Guardar Alterações</button>
-            <a href="agenda.php" class="btn btn-secondary">Cancelar</a>
+            <a href="agenda.php" class="btn btn-secondary">Voltar</a>
 
         </form>
     </div>

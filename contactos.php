@@ -60,7 +60,7 @@ session_start();
       <p><a href="mailto:adpontedabarca@gmail.com">adpbarca@gmail.com</a></p>
 
       <h2> Telefone</h2>
-      <p><a href="tel:+351969810274">+351 969 810 274</a></p>
+      <p><a href="tel:+351 969 810 274">+351 969 810 274</a></p>
 
       <h2>Fax</h2>
       <p><a href="fax:258 453 939">258 453 939</a></p>

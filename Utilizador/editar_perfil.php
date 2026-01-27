@@ -54,7 +54,7 @@ if (!$user) {
             <input type="file" name="foto" accept="image/*">
 
             <div class="perfil-acoes">
-                <button type="submit" class="botao-vermelho">Guardar Alteracoes</button>
+                <button type="submit" class="botao-vermelho">Guardar Alterações</button>
                 <a href="perfil.php" class="botao-preto">Cancelar</a>
             </div>
         </form>
