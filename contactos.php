@@ -71,7 +71,12 @@ session_start();
     </div>
     <div class="contactos-form">
       <h2> Envia-nos uma mensagem</h2>
-      <form action="#" method="post">
+      <?php if (!empty($_GET['enviado'])): ?>
+        <p style="color:#0a7a3b; font-weight:600; margin-bottom:12px;">Mensagem enviada com sucesso.</p>
+      <?php elseif (!empty($_GET['erro'])): ?>
+        <p style="color:#b00020; font-weight:600; margin-bottom:12px;">Erro ao enviar. Tenta novamente.</p>
+      <?php endif; ?>
+      <form action="enviar_mensagem.php" method="post">
         <input type="text" name="nome" placeholder="O teu nome" required>
         <input type="email" name="email" placeholder="O teu email" required>
         <textarea name="mensagem" rows="5" placeholder="Escreve a tua mensagem..." required></textarea>
@@ -84,5 +89,4 @@ session_start();
 <?php include 'footer.php'; ?>
 
 <script src="Menu.js"></script>
-
 

@@ -836,6 +836,51 @@ h1 {
   margin-bottom: 8px;
 }
 
+.admin-messages h1 {
+  text-align: center;
+  color: #b80000;
+  margin-bottom: 20px;
+}
+
+.admin-table-wrap {
+  overflow-x: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #f1d4d4;
+  box-shadow: 0 8px 20px rgba(184, 0, 0, 0.08);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #f0e0e0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.admin-table th {
+  background: #fff1f1;
+  color: #7a0c0c;
+  font-weight: 700;
+}
+
+.admin-message-cell {
+  max-width: 420px;
+  white-space: pre-wrap;
+}
+
+.admin-empty {
+  text-align: center;
+  color: #666666;
+  padding: 20px 10px;
+}
+
 .admin-footer {
   text-align: center;
 }

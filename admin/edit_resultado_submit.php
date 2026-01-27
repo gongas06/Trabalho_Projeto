@@ -12,6 +12,8 @@ $equipa_casa = $_POST['equipa_casa'];
 $equipa_fora = $_POST['equipa_fora'];
 $golo_casa = $_POST['golo_casa'];
 $golo_fora = $_POST['golo_fora'];
+$competicao = $_POST['competicao'];
+$epoca = $_POST['epoca'];
 
 $res = $mysqli->query("SELECT * FROM resultados WHERE id = $id");
 $r = $res->fetch_assoc();
@@ -31,15 +33,17 @@ if (!empty($_FILES['imagem_fora']['name'])) {
 
 $stmt = $mysqli->prepare("
     UPDATE resultados 
-    SET equipa_casa=?, equipa_fora=?, golo_casa=?, golo_fora=?, imagem_casa=?, imagem_fora=?
+    SET equipa_casa=?, equipa_fora=?, golo_casa=?, golo_fora=?, competicao=?, epoca=?, imagem_casa=?, imagem_fora=?
     WHERE id=?
 ");
 
-$stmt->bind_param("ssiissi",
+$stmt->bind_param("ssiissssi",
     $equipa_casa,
     $equipa_fora,
     $golo_casa,
     $golo_fora,
+    $competicao,
+    $epoca,
     $imagem_casa,
     $imagem_fora,
     $id

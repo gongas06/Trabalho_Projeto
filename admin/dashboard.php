@@ -22,6 +22,14 @@ $countGaleria = $mysqli->query(
     "SELECT COUNT(*) as c FROM galeria"
 )->fetch_assoc()['c'] ?? 0;
 
+$countMensagens = 0;
+$mensagensCountResult = $mysqli->query(
+    "SELECT COUNT(*) as c FROM mensagens"
+);
+if ($mensagensCountResult) {
+    $countMensagens = $mensagensCountResult->fetch_assoc()['c'] ?? 0;
+}
+
 $countUsers = 0;
 $usersResult = null;
 if ($isAdmin) {
@@ -46,6 +54,7 @@ include 'includes/header.php';
             <a href="news.php">Gestão de Notícias</a>
             <a href="agenda.php">Gestão de Agenda</a>
             <a href="galeria.php">Gestão da Galeria</a>
+            <a href="mensagens.php">Mensagens</a>
             <?php if ($isAdmin): ?>
                 <a href="users.php">Gestão de Utilizadores</a>
             <?php endif; ?>
@@ -100,6 +109,16 @@ include 'includes/header.php';
                 </div>
                 <a href="galeria.php" class="admin-card-link">
                     Gerir Galeria
+                </a>
+            </article>
+
+            <article class="admin-card">
+                <div class="admin-card-title">Mensagens</div>
+                <div class="admin-card-metric">
+                    <?= (int)$countMensagens; ?> recebidas
+                </div>
+                <a href="mensagens.php" class="admin-card-link">
+                    Ver Mensagens
                 </a>
             </article>
 

@@ -51,6 +51,16 @@ include 'includes/header.php';
     </div>
 
     <div class="mb-3">
+        <label>Competição</label>
+        <input class="form-control" name="competicao" value="<?= htmlspecialchars($r['competicao'] ?? '') ?>" required>
+    </div>
+
+    <div class="mb-3">
+        <label>Época</label>
+        <input class="form-control" name="epoca" value="<?= htmlspecialchars($r['epoca'] ?? '') ?>" required>
+    </div>
+
+    <div class="mb-3">
         <label>Imagem Casa atual</label>
         <?php
         $casa_path = resolve_result_image_path($r['imagem_casa'] ?? '');

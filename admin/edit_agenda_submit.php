@@ -14,17 +14,18 @@ if ($id <= 0) {
 
 $stmt = $mysqli->prepare("
     UPDATE agenda
-    SET equipa_casa = ?, equipa_fora = ?, data_jogo = ?, hora_jogo = ?, local_jogo = ?
+    SET equipa_casa = ?, equipa_fora = ?, data_jogo = ?, hora_jogo = ?, local_jogo = ?, competicao = ?, epoca = ?
     WHERE id = ?
 ");
 
 $stmt->bind_param(
-    "sssssi",
+    "sssssssi",
     $_POST['equipa_casa'],
     $_POST['equipa_fora'],
     $_POST['data_jogo'],
     $_POST['hora_jogo'],
     $_POST['local_jogo'],
+    $_POST['competicao'],
     $id
 );
 

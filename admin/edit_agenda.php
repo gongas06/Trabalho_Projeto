@@ -46,6 +46,18 @@ include "includes/header.php";
                    value="<?= htmlspecialchars($j['local_jogo']) ?>" required>
         </div>
 
+        <div class="mb-3">
+            <label>Competição</label>
+            <input type="text" name="competicao" class="form-control"
+                   value="<?= htmlspecialchars($j['competicao'] ?? '') ?>" required>
+        </div>
+
+        <div class="mb-3">
+            <label>Época</label>
+            <input type="text" name="epoca" class="form-control"
+                   value="<?= htmlspecialchars($j['epoca'] ?? '') ?>" required>
+        </div>
+
         <div style="margin-top:12px;">
             <button class="btn" type="submit">Guardar Alterações</button>
             <a href="agenda.php" class="btn btn-secondary" style="margin-left:8px;">Voltar</a>
