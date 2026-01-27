@@ -11,6 +11,16 @@ if ($id === 0) {
 $res = $mysqli->query("SELECT * FROM resultados WHERE id = $id");
 $r = $res->fetch_assoc();
 
+function resolve_result_image_path($path) {
+    if (!$path) {
+        return null;
+    }
+    if (strpos($path, 'uploads/') === 0) {
+        return '../' . $path;
+    }
+    return '../uploads/' . $path;
+}
+
 include 'includes/header.php';
 ?>
 
@@ -42,19 +52,33 @@ include 'includes/header.php';
 
     <div class="mb-3">
         <label>Imagem Casa atual</label>
-        <p><?= $r['imagem_casa'] ?: "Nenhuma" ?></p>
+        <?php
+        $casa_path = resolve_result_image_path($r['imagem_casa'] ?? '');
+        $casa_abs = $casa_path ? __DIR__ . '/' . $casa_path : null;
+        if ($casa_path && $casa_abs && file_exists($casa_abs)): ?>
+            <img class="admin-image-preview" src="<?= $casa_path ?>" alt="Imagem casa">
+        <?php else: ?>
+            <div class="admin-muted">Nenhuma</div>
+        <?php endif; ?>
         <input type="file" class="form-control" name="imagem_casa">
     </div>
 
     <div class="mb-3">
         <label>Imagem Fora atual</label>
-        <p><?= $r['imagem_fora'] ?: "Nenhuma" ?></p>
+        <?php
+        $fora_path = resolve_result_image_path($r['imagem_fora'] ?? '');
+        $fora_abs = $fora_path ? __DIR__ . '/' . $fora_path : null;
+        if ($fora_path && $fora_abs && file_exists($fora_abs)): ?>
+            <img class="admin-image-preview" src="<?= $fora_path ?>" alt="Imagem fora">
+        <?php else: ?>
+            <div class="admin-muted">Nenhuma</div>
+        <?php endif; ?>
         <input type="file" class="form-control" name="imagem_fora">
     </div>
 
-        <div style="margin-top:12px;">
+    <div style="margin-top:12px;">
         <button class="btn" type="submit">Guardar Alterações</button>
-        <a href="resultados.php" class="btn" style="background:#444; margin-left:8px; text-decoration:none; display:inline-block;">Voltar</a>
+        <a href="resultados.php" class="btn btn-secondary" style="margin-left:8px;">Voltar</a>
       </div>
     </form>
 </div>
