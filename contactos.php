@@ -54,7 +54,9 @@ session_start();
 
     <div class="contactos-info">
       <h2> Sede do Clube</h2>
-      <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2974.146372538899!2d-8.415196935036624!3d41.80360713142451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2508dc3172a46d%3A0x544892d7971ca82b!2sAdponted%20Abarca!5e0!3m2!1spt-PT!2spt!4v1760873512212!5m2!1spt-PT!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+      <div class="contactos-mapa">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2974.146372538899!2d-8.415196935036624!3d41.80360713142451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2508dc3172a46d%3A0x544892d7971ca82b!2sAdponted%20Abarca!5e0!3m2!1spt-PT!2spt!4v1760873512212!5m2!1spt-PT!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
 
       <h2> Email</h2>
       <p><a href="mailto:adpontedabarca@gmail.com">adpbarca@gmail.com</a></p>
@@ -64,8 +66,10 @@ session_start();
 
       <h2>Fax</h2>
       <p><a href="fax:258 453 939">258 453 939</a></p>
-  <h2>Estádio</h2>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.0412810802286!2d-8.4186608!3d41.8048481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2508e000c0f401%3A0xa3ffd9d4e5bf6db3!2sCampo%20Municipal%20Ponte%20da%20Barca!5e1!3m2!1spt-PT!2spt!4v1760873349128!5m2!1spt-PT!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <h2>Estádio</h2>
+      <div class="contactos-mapa">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3826.0412810802286!2d-8.4186608!3d41.8048481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2508e000c0f401%3A0xa3ffd9d4e5bf6db3!2sCampo%20Municipal%20Ponte%20da%20Barca!5e1!3m2!1spt-PT!2spt!4v1760873349128!5m2!1spt-PT!2spt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
 
 
     </div>
@@ -89,4 +93,3 @@ session_start();
 <?php include 'footer.php'; ?>
 
 <script src="Menu.js"></script>
-

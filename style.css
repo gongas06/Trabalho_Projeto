@@ -535,6 +535,11 @@ h1 {
   margin-top: 20px;
 }
 
+.contactos-mapa {
+  margin: 12px 0 28px;
+}
+
+
 .contactos-info p {
   color: #444;
   line-height: 1.6;
