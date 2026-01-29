@@ -64,15 +64,19 @@
   box-shadow: 0 3px 8px rgba(0,0,0,0.10);
 }
 
+/* Emblemas com tamanho consistente */
 .pagina-resultados .card img {
   width: 65px;
+  height: 65px;
+  object-fit: contain;
 }
 
 /* Equipas */
 .pagina-resultados .equipas {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 16px;
 }
 
 .pagina-resultados .resultado {

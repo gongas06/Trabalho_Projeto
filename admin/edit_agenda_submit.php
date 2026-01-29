@@ -26,6 +26,7 @@ $stmt->bind_param(
     $_POST['hora_jogo'],
     $_POST['local_jogo'],
     $_POST['competicao'],
+    $_POST['epoca'],
     $id
 );
 
