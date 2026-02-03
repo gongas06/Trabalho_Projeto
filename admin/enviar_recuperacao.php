@@ -99,7 +99,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     <?php else: ?>
       <div class="alert ok"><?= htmlspecialchars($msg) ?></div>
     <?php endif; ?>
-    <a href="login.php">Voltar ao login</a>
+    <a href="login.php" class="back-button">← Voltar ao site</a>
   </div>
 </body>
 </html>
