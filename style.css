@@ -5,7 +5,8 @@
    - Secções específicas por página
    ========================================================= */
 
-/* RESET */
+/* RESET
+   - Garante consistência de box model e remove margens/paddings padrão */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -229,6 +230,8 @@
   .galeria-container { grid-template-columns: 1fr; gap: 10px; padding: 15px; }
 }
 
+/* VARIÁVEIS GLOBAIS
+   - Paleta principal e larguras padrão de layout */
 :root {
   --vermelho: #c71b1b;
   --vermelho-escuro: #9f1212;
@@ -238,7 +241,8 @@
   --container-width: 1100px;
 }
 
-/* BASE GERAL */
+/* BASE GERAL
+   - Tipografia, cores de fundo e suavização de texto */
 body {
   font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: var(--cinz);
@@ -247,7 +251,8 @@ body {
 }
 
 
-/* HERO (versão mais clara e moderna) */
+/* HERO (versão mais clara e moderna)
+   - Imagem de fundo + overlay + CTA central */
 .hero {
   position: relative;
   height: 60vh;
@@ -259,7 +264,8 @@ body {
   overflow: hidden;
 }
 
-/* camada de cor — agora mais clara */
+/* Camada de cor do hero
+   - Suaviza a imagem e melhora legibilidade */
 .hero::before {
   content: "";
   position: absolute;
@@ -271,7 +277,7 @@ body {
   z-index: 1;
 }
 
-/* conteúdo */
+/* Conteúdo do hero (cartão central) */
 .hero .overlay {
   position: relative;
   z-index: 2;
@@ -295,7 +301,8 @@ body {
   margin-bottom: 22px;
 }
 
-/* botão principal — amarelo vibrante */
+/* Botão principal
+   - Usado em CTAs do site */
 .botao {
   display: inline-block;
   background: #ffffff;
@@ -312,7 +319,8 @@ body {
   background: #db1b20;
 }
 
-/* ⚙️ CORREÇÕES DE CONTEÚDO E CONTAINER */
+/* CONTAINER GLOBAL
+   - Centraliza conteúdo e cria respiro abaixo do header fixo */
 .container {
   max-width: var(--container-width);
   margin: 90px auto 40px; /* espaço para header fixo */
@@ -324,7 +332,8 @@ body {
   margin-top: 100px; /* garante espaço abaixo do header */
 }
 
-/* DESTAQUES/CARDS */
+/* DESTAQUES/CARDS
+   - Blocos de destaque na home */
 .destaques {
   display: flex;
   gap: 10px;
@@ -352,7 +361,8 @@ body {
   text-decoration: none;
 }
 
-/* NOTÍCIAS */
+/* NOTÍCIAS
+   - Grelha base (home) e cards */
 .noticias {
   margin-top: 20px;
 }
@@ -388,7 +398,8 @@ body {
   color: #444;
 }
 
-/* SECÇÃO EQUIPA */
+/* SECÇÃO EQUIPA
+   - Cards de jogadores e layout base */
 h1 {
   text-align: center;
   color: var(--vermelho);
@@ -457,7 +468,8 @@ h1 {
   color: var(--vermelho);
 }
 
-/* RODAPÉ */
+/* RODAPÉ (versão simples antiga)
+   - Mantido para páginas que ainda usam .rodape */
 .rodape {
   margin-top: 40px;
   background: #0b0b0b;
@@ -470,7 +482,8 @@ h1 {
   font-size: 0.95rem;
 }
 
-/* RESPONSIVO */
+/* RESPONSIVO GLOBAL
+   - Ajustes de grelhas, hero e containers */
 @media (max-width: 1024px) {
   .equipa-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -524,7 +537,8 @@ h1 {
   }
 }
 
-/* CONTACTOS */
+/* CONTACTOS
+   - Layout em 2 colunas com mapa + formulário */
 .contactos-section {
   max-width: 1100px;
   margin: 60px auto;
@@ -599,6 +613,7 @@ h1 {
 
 /* ============================= */
 /* 🔐 LOGIN E BACKOFFICE ADPB    */
+/* - Componentes antigos do login/painel */
 /* ============================= */
 
 /* Container geral do login */
@@ -697,7 +712,7 @@ h1 {
   font-size: 0.95rem;
 }
 
-/* Painel admin */
+/* Painel admin (estrutura antiga) */
 .admin-container {
   max-width: 600px;
   margin: 100px auto;
@@ -730,7 +745,8 @@ h1 {
   background: var(--vermelho-escuro);
 }
 
-/* Admin layout */
+/* Admin layout (novo)
+   - Header, sidebar e conteúdo do backoffice */
 .admin-bg {
   background: #ffffff;
   min-height: 100vh;
@@ -1074,6 +1090,7 @@ h1 {
   color: var(--vermelho-escuro);
 }
 
+/* Responsivo do backoffice */
 @media (max-width: 900px) {
   .admin-layout {
     grid-template-columns: 1fr;
@@ -1098,6 +1115,7 @@ h1 {
 }
 /* =============================== */
 /* ⚽ CORREÇÃO — EQUIPA (FOTOS IGUAIS E GRID AJUSTADA) */
+/* - Ajustes finais para uniformizar tamanhos e responsivo */
 /* =============================== */
 
 .equipa-section {
@@ -1181,7 +1199,8 @@ h1 {
   }
 }
 
-/* ==== LOGIN PAGE ==== */
+/* ==== LOGIN PAGE ====
+   - Layout do formulário de login/recuperação */
 .login-body {
   display: flex;
   justify-content: center;
@@ -1372,7 +1391,8 @@ h1 {
   color: #ffffff; 
 }
 
-/* ==== Ficha de Jogador (Modal estilo FPF) ==== */
+/* ==== Ficha de Jogador (Modal estilo FPF) ====
+   - Modal com ficha individual dos jogadores */
 .modal {
   display: none;
   position: fixed;
@@ -1439,7 +1459,8 @@ h1 {
   cursor: pointer;
 }
 
-/* ===== TIMELINE ===== */
+/* ===== TIMELINE =====
+   - Linha do tempo da história do clube */
 .timeline-section {
   text-align: center;
   margin: 60px 0;
@@ -1533,7 +1554,8 @@ h1 {
   }
 }
 
-/* ===== PATROCINADORES ===== */
+/* ===== PATROCINADORES =====
+   - Grelha de logos e CTA de retorno */
 .pagina-patrocinadores {
   background-color: #f9f9f9;
   font-family: "Poppins", sans-serif;
@@ -1632,7 +1654,8 @@ h1 {
   }
 }
 
-/* ===== PALMARÉS ESTILO FIEL ===== */
+/* ===== PALMARÉS ESTILO FIEL =====
+   - Versão original (numeradores grandes) */
 .palmares {
   background: linear-gradient(180deg, #b11a1a, #9f1515); /* leve gradiente */
   color: #fff;
@@ -1708,7 +1731,8 @@ h1 {
 
 /* RESPONSIVO — em telas pequenas fica em co*
 
-/* ==== PALMARÉS ==== */
+/* ==== PALMARÉS ====
+   - Variante alternativa (grade com cartões e ícones) */
 .palmares {
   text-align: center;
   padding: 60px 20px;
@@ -2003,7 +2027,8 @@ h1 {
   justify-content: center;
 }
 
-/* ==== CORREÇÃO DO CARROSSEL (mostra 4 cards centrados) ==== */
+/* ==== CORREÇÃO DO CARROSSEL (mostra 4 cards centrados) ====
+   - Ajusta largura e navegação para 4 itens visíveis */
 .secao-carrossel {
   background-color: #111;
   color: white;
@@ -2102,7 +2127,8 @@ h1 {
   gap: 20px;
 }
 
-/* ==== HERO LOJA ==== */
+/* ==== HERO LOJA ====
+   - Secção promocional com split vermelho/branco */
 .hero-loja {
   background: linear-gradient(120deg, #b90000 40%, #ffffff 40%);
   display: flex;
@@ -2158,7 +2184,8 @@ h1 {
   filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.2));
 }
 
-/* ==== RESPONSIVO ==== */
+/* ==== RESPONSIVO ====
+   - Ajustes do hero da loja para mobile */
 @media (max-width: 900px) {
   .hero-loja {
     flex-direction: column-reverse;
@@ -2181,6 +2208,7 @@ h1 {
   color: white;
 }
 
+/* Botão de logout no header */
 .logout-link {
   background: #cc0000;
   color: white;
@@ -2195,6 +2223,8 @@ h1 {
   background: #ff3333;
 }
 
+/* PERFIL UTILIZADOR
+   - Conteúdos de edição/visualização */
 .perfil-container {
   display: flex;
   justify-content: center;
@@ -2316,7 +2346,8 @@ h1 {
   background: #900;
 }
 
-/* ==== LOGIN ADPB NOVO ==== */
+/* ==== LOGIN ADPB NOVO ====
+   - Estilo atual do login (card central + botão voltar) */
 
 .login-bg {
     background: linear-gradient(180deg, #c71b1b 0%, #9f1212 100%);
@@ -2509,7 +2540,8 @@ h1 {
     margin-bottom: 25px;
 }
 
-/* Grid das notícias */
+/* Grid das notícias
+   - Carrossel horizontal nas "Últimas Notícias" */
 .noticias-grid {
     display: flex;
     gap: 25px;
@@ -2591,7 +2623,8 @@ h1 {
     scroll-snap-align: center;
 }
 
-/* Card */
+/* Card
+   - Estrutura do cartão de notícia */
 .noticia-card {
     width: 300px;
     background: #fff;
@@ -2728,7 +2761,8 @@ h1 {
     gap: 10px;
 }
 
-/* Últimos Resultados */
+/* Últimos Resultados
+   - Carrossel e cards com resultados recentes */
 .ultimos-resultados {
     margin: 60px 0;
 }
@@ -2887,7 +2921,8 @@ h1 {
     width: 100%;
 }
 
-/* Container geral */
+/* Container geral
+   - Cards pequenos de resultados */
 .todos-resultados-container {
   display: flex;
   flex-wrap: wrap;
@@ -2941,7 +2976,8 @@ h1 {
   color: #444;
 }
 
-/* HERO da Agenda */
+/* HERO da Agenda
+   - Cabeçalho da agenda com filtro */
 .agenda-hero {
     background: #C7372F;
     padding: 60px 20px;
@@ -2965,7 +3001,8 @@ h1 {
     background: white;
 }
 
-/* Secção dos cards */
+/* Secção dos cards
+   - Lista de jogos da agenda */
 .agenda-lista {
     padding: 40px;
     background: #C7372F;
@@ -3004,7 +3041,8 @@ h1 {
     color: #444;
 }
 
-/* Cada card horizontal */
+/* Cada card horizontal
+   - Layout do jogo na agenda */
 .agenda-card {
     background: #ffffff;
     padding: 25px 30px;
@@ -3213,6 +3251,7 @@ h1 {
     }
  /* ==========================
       HEADER / TOPO (AJUSTADO)
+      - Logo, navegação e botão hamburger
 ========================== */
 
 .topo {
@@ -3276,7 +3315,8 @@ h1 {
     border-bottom: 2px solid white;
 }
 
-/* USER INFO (login/logout) */
+/* USER INFO (login/logout)
+   - Estado autenticado na navegação */
 .user-info {
     display: flex;
     align-items: center;
@@ -3302,6 +3342,7 @@ h1 {
 
 /* ==============================
         MOBILE RESPONSIVE
+        - Menu colapsado e ajustes do topo
 ============================== */
 @media (max-width: 900px) {
 
@@ -3342,7 +3383,8 @@ h1 {
     }
 }
 
-/* === CORREÇÃO DO HEADER — HAMBURGER VISÍVEL EM DESKTOP === */
+/* === CORREÇÃO DO HEADER — HAMBURGER VISÍVEL EM DESKTOP ===
+   - Força o hamburger a aparecer apenas no mobile */
 .hamburger {
     display: none !important;
 }
