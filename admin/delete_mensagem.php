@@ -1,4 +1,5 @@
 <?php
+// Backoffice: elimina mensagem recebida.
 require_once 'auth.php';
 require_once 'db.php';
 require_login();

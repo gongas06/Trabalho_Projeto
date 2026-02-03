@@ -1,3 +1,4 @@
+<!-- Rodapé global com contactos, links e redes sociais. -->
 <footer class="footer">
   <div class="footer-content">
 
@@ -41,6 +42,7 @@
   </div>
 </footer>
 
+<!-- Estilos específicos do rodapé (mantidos inline neste include). -->
 <style>
 
 .footer {

@@ -1,4 +1,5 @@
 <?php
+// Página de perfil do utilizador autenticado.
 session_start();
 
 // Ligação à base de dados

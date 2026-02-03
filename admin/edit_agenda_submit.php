@@ -1,4 +1,5 @@
 <?php
+// Handler para atualizar jogo na agenda.
 require_once 'auth.php';
 require_once 'db.php';
 require_login();

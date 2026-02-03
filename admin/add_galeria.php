@@ -1,4 +1,5 @@
 <?php
+// Backoffice: formulário para adicionar item à galeria.
 require_once __DIR__ . '/auth.php';
 require_login();
 if (!is_admin()) {

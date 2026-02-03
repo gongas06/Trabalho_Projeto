@@ -1,4 +1,5 @@
 <?php
+// Backoffice: formulário e submissão para criar notícia.
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/db.php';
 
@@ -11,6 +12,7 @@ if (!is_admin()) {
 $msg = '';
 $err = '';
 
+// Processa submissão do formulário.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $title = trim($_POST['title'] ?? '');
@@ -25,12 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $published_at = date('Y-m-d H:i:s');
     }
 
-    // validação
+    // Validação básica.
     if ($title === '' || $body === '') {
         $err = 'Preenche título e conteúdo.';
     } else {
 
-        // upload de imagem
+        // Upload de imagem (opcional).
         $image_name = null;
 
         if (!empty($_FILES['image']['name'])) {

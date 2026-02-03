@@ -1,4 +1,5 @@
 <?php
+// Handler de edição de resultado (dados + imagens).
 require_once 'auth.php';
 require_once 'db.php';
 require_login();
@@ -15,6 +16,7 @@ $golo_fora = $_POST['golo_fora'];
 $competicao = $_POST['competicao'];
 $epoca = $_POST['epoca'];
 
+// Carrega imagens atuais para manter se não forem substituídas.
 $res = $mysqli->query("SELECT * FROM resultados WHERE id = $id");
 $r = $res->fetch_assoc();
 
@@ -26,6 +28,7 @@ if (!is_dir($uploads_dir)) {
     mkdir($uploads_dir, 0755, true);
 }
 
+// Upload de novas imagens (se enviadas).
 if (!empty($_FILES['imagem_casa']['name'])) {
     $safe_name = preg_replace('/[^A-Za-z0-9_\-\.]/', '_', basename($_FILES['imagem_casa']['name']));
     $imagem_casa = time() . "_casa_" . $safe_name;
@@ -38,6 +41,7 @@ if (!empty($_FILES['imagem_fora']['name'])) {
     move_uploaded_file($_FILES['imagem_fora']['tmp_name'], $uploads_dir . '/' . $imagem_fora);
 }
 
+// Atualiza o registo na base de dados.
 $stmt = $mysqli->prepare("
     UPDATE resultados 
     SET equipa_casa=?, equipa_fora=?, golo_casa=?, golo_fora=?, competicao=?, epoca=?, imagem_casa=?, imagem_fora=?

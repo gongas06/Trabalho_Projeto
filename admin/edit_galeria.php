@@ -1,4 +1,5 @@
 <?php
+// Backoffice: edição de item da galeria.
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/db.php';
 require_login();
@@ -79,6 +80,7 @@ if (!$item) {
             $file_name = $item['imagem'] ?? '';
             $file_rel = $file_name ? ('../uploads/' . $file_name) : '';
             $file_abs = $file_name ? (__DIR__ . '/../uploads/' . $file_name) : '';
+            // Detecta se o ficheiro é vídeo.
             $ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
             $is_video = in_array($ext, ['mp4', 'webm', 'ogg'], true);
             ?>

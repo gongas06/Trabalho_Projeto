@@ -1,4 +1,5 @@
 <?php
+// Handler de recuperação de password: gera token e envia email.
 require_once __DIR__ . '/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -13,6 +14,7 @@ $err = '';
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
     $err = 'Email inválido.';
 } else {
+    // Procura utilizador pelo email.
     $stmt = $mysqli->prepare('SELECT id, username FROM utilizadores WHERE email = ? LIMIT 1');
     if (!$stmt) {
         $err = 'Erro ao preparar pedido.';
@@ -22,6 +24,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $user = $stmt->get_result()->fetch_assoc();
 
         if ($user) {
+            // Garante tabela de resets e cria token com expiração.
             $create = "
                 CREATE TABLE IF NOT EXISTS password_resets (
                     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -54,6 +57,7 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
                 $insert->execute();
             }
 
+            // Constrói link de redefinição.
             $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
             $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
             $base = rtrim(dirname($_SERVER['PHP_SELF']), '/');

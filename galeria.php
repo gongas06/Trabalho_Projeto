@@ -1,7 +1,9 @@
 <?php
+// Página de galeria pública: lista de imagens/vídeos com lightbox.
 session_start();
 include __DIR__ . "/admin/db.php";
 
+// Conteúdo da categoria "comunidade".
 $result = $mysqli->query("SELECT * FROM galeria WHERE categoria = 'comunidade' ORDER BY id DESC");
 ?>
 
@@ -88,6 +90,7 @@ $result = $mysqli->query("SELECT * FROM galeria WHERE categoria = 'comunidade' O
 
   <script src="Menu.js"></script>
   <script>
+    // Lightbox com suporte a imagem/vídeo e navegação por teclado.
     const lightbox = document.getElementById("galeriaLightbox");
     const lightboxImg = lightbox.querySelector("img");
     const lightboxVideo = lightbox.querySelector("video");

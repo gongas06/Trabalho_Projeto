@@ -1,4 +1,5 @@
 <?php
+// Ligação à base de dados MySQL (charset UTF-8).
 require_once __DIR__ . '/config.php';
 
 

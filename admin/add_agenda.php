@@ -1,4 +1,5 @@
 <?php
+// Backoffice: formulário para adicionar jogo à agenda.
 require_once 'auth.php';
 require_login();
 ?>

@@ -1,4 +1,5 @@
 <?php
+// Página da equipa com fichas/modal de jogadores.
 session_start();
 ?>
 <!DOCTYPE html>
@@ -49,6 +50,7 @@ session_start();
   </header>
 
 
+<!-- Plantel e fichas individuais -->
 <section class="equipa-section">
    <h1>A Nossa Equipa</h1>
 

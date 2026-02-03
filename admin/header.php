@@ -1,5 +1,5 @@
 <?php
-// Basic header include - using Bootstrap from CDN
+// Cabeçalho simples do backoffice (layout Bootstrap via CDN).
 ?>
 <!doctype html>
 <html lang="pt">

@@ -1,8 +1,9 @@
 <?php
+// Página de notícias: destaque + lista das últimas publicações.
 session_start();
-require_once "admin/db.php";  
+require_once "admin/db.php";
 
-// NOTÍCIA EM DESTAQUE
+// Notícia em destaque (flag destaque = 1).
 $destaque = $mysqli->query("
     SELECT * FROM noticias 
     WHERE destaque = 1 
@@ -10,7 +11,7 @@ $destaque = $mysqli->query("
     LIMIT 1
 ");
 
-// RESTANTES NOTÍCIAS
+// Restantes notícias em lista.
 $result = $mysqli->query("
     SELECT * FROM noticias 
     WHERE destaque = 0 

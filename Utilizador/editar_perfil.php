@@ -1,4 +1,5 @@
 <?php
+// Formulário para editar dados e foto do perfil do utilizador.
 session_start();
 require_once __DIR__ . '/../admin/db.php';
 
@@ -9,6 +10,7 @@ if (!isset($_SESSION['username'])) {
 
 $username = $_SESSION['username'];
 
+// Carrega dados atuais do utilizador.
 $stmt = $mysqli->prepare("SELECT * FROM utilizadores WHERE username = ?");
 $stmt->bind_param("s", $username);
 $stmt->execute();

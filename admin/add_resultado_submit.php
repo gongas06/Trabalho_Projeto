@@ -1,4 +1,5 @@
 <?php
+// Handler para criação de resultado (dados + upload de imagens).
 require_once 'auth.php';
 require_once 'db.php';
 require_login();
@@ -12,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $competicao = $_POST['competicao'] ?? '';
     $epoca = $_POST['epoca'] ?? '';
 
-    // Criar nomes dos ficheiros
+    // Preparar uploads e nomes de ficheiros.
     $imagem_casa = null;
     $imagem_fora = null;
     $uploads_dir = __DIR__ . '/../uploads';
@@ -20,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         mkdir($uploads_dir, 0755, true);
     }
 
-    // Upload imagem da equipa da casa
+    // Upload imagem da equipa da casa.
     if (!empty($_FILES['imagem_casa']['name'])) {
         $safe_name = preg_replace('/[^A-Za-z0-9_\-\.]/', '_', basename($_FILES['imagem_casa']['name']));
         $imagem_casa = time() . "_casa_" . $safe_name;
@@ -32,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Upload imagem da equipa de fora
+    // Upload imagem da equipa de fora.
     if (!empty($_FILES['imagem_fora']['name'])) {
         $safe_name = preg_replace('/[^A-Za-z0-9_\-\.]/', '_', basename($_FILES['imagem_fora']['name']));
         $imagem_fora = time() . "_fora_" . $safe_name;
@@ -44,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Inserir na BD
+    // Inserir na base de dados.
     $stmt = $mysqli->prepare("
         INSERT INTO resultados (equipa_casa, equipa_fora, golo_casa, golo_fora, imagem_casa, imagem_fora, competicao, epoca)
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)

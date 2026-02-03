@@ -1,3 +1,10 @@
+/* =========================================================
+   ESTILOS GLOBAIS DO SITE ADPB
+   - Reset e base tipográfica
+   - Componentes reutilizáveis
+   - Secções específicas por página
+   ========================================================= */
+
 /* RESET */
 * {
   box-sizing: border-box;

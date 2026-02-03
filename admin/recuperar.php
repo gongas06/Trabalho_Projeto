@@ -1,3 +1,4 @@
+<!-- Formulário para solicitar link de recuperação de password. -->
 <!DOCTYPE html>
 <html lang="pt">
 <head>

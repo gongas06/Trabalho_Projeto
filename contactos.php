@@ -1,4 +1,5 @@
 <?php
+// Página de contactos com mapas, informações do clube e formulário de mensagem.
 session_start();
 ?>
 <!DOCTYPE html>
@@ -52,6 +53,7 @@ session_start();
 
   <div class="contactos-container">
 
+    <!-- Informações e mapas -->
     <div class="contactos-info">
       <h2> Sede do Clube</h2>
       <div class="contactos-mapa">
@@ -73,6 +75,7 @@ session_start();
 
 
     </div>
+    <!-- Formulário de contacto -->
     <div class="contactos-form">
       <h2> Envia-nos uma mensagem</h2>
       <?php if (!empty($_GET['enviado'])): ?>

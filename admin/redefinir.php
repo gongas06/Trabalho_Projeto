@@ -1,4 +1,5 @@
 <?php
+// Página de redefinição de password via token.
 require_once __DIR__ . '/db.php';
 
 $token = $_GET['token'] ?? '';
@@ -9,6 +10,7 @@ if ($token === '') {
     $err = 'Token invalido.';
 }
 
+// Processa nova password.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $token = $_POST['token'] ?? '';
     $password = $_POST['password'] ?? '';
@@ -21,6 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } elseif ($password !== $password2) {
         $err = 'As palavras-passe nao coincidem.';
     } else {
+        // Valida token e expiração.
         $token_hash = hash('sha256', $token);
         $stmt = $mysqli->prepare(
             'SELECT user_id, expires_at FROM password_resets WHERE token_hash = ? LIMIT 1'

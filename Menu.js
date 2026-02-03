@@ -1,6 +1,7 @@
-
+// Funcionalidades globais do site: menu mobile, contadores animados e navegação do carrossel.
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Alterna o menu de navegação no modo mobile.
   const hamburger = document.getElementById("hamburger");
   const navMenu = document.getElementById("navMenu");
 
@@ -13,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Anima contadores quando entram em viewport.
   const counters = document.querySelectorAll(".contador");
 
   const animateCount = (el) => {
@@ -44,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Controlo do carrossel de resultados na homepage.
   const grid = document.querySelector(".ultimos-resultados .resultados-grid");
   const prevBtn = document.querySelector(".ultimos-resultados .carousel-btn.prev");
   const nextBtn = document.querySelector(".ultimos-resultados .carousel-btn.next");

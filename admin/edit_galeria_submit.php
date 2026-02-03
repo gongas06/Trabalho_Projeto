@@ -1,4 +1,5 @@
 <?php
+// Handler para atualizar item da galeria (ficheiro e categoria).
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/db.php';
 require_login();
@@ -20,6 +21,7 @@ if ($id <= 0) {
     die('ID invalido.');
 }
 
+// Carrega o ficheiro atual para manter/substituir.
 $stmt = $mysqli->prepare('SELECT imagem FROM galeria WHERE id = ? LIMIT 1');
 if (!$stmt) {
     die('Erro ao preparar pedido.');
@@ -35,6 +37,7 @@ if (!$row) {
 $imagem_atual = $row['imagem'] ?? '';
 $imagem_nova = $imagem_atual;
 
+// Upload de novo ficheiro (se enviado).
 if (!empty($_FILES['imagem']['name'])) {
     $max_size = 100 * 1024 * 1024;
     if (!empty($_FILES['imagem']['size']) && $_FILES['imagem']['size'] > $max_size) {
@@ -62,6 +65,7 @@ if (!empty($_FILES['imagem']['name'])) {
     }
 }
 
+// Atualiza o registo.
 $update = $mysqli->prepare('UPDATE galeria SET imagem = ?, categoria = ? WHERE id = ?');
 if (!$update) {
     die('Erro ao preparar atualizacao.');

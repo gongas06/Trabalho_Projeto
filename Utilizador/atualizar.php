@@ -1,4 +1,5 @@
 <?php
+// Handler de atualização do perfil (dados e foto).
 session_start();
 require_once __DIR__ . '/../admin/db.php';
 
@@ -12,7 +13,7 @@ $username = $_POST['username'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// 🔐 Atualizar password (se existir)
+// Atualiza dados base e, opcionalmente, a password.
 if (!empty($password)) {
     $passwordHash = password_hash($password, PASSWORD_DEFAULT);
     $stmt = $mysqli->prepare(
@@ -28,7 +29,7 @@ if (!empty($password)) {
 
 $stmt->execute();
 
-// 📸 Upload da foto
+// Upload da foto de perfil (se enviada).
 if (!empty($_FILES['foto']['name'])) {
 
     $pasta = __DIR__ . "/../uploads/perfis/";
@@ -57,5 +58,4 @@ if (!empty($_FILES['foto']['name'])) {
 $_SESSION['username'] = $username;
 header("Location: perfil.php");
 exit;
-
 

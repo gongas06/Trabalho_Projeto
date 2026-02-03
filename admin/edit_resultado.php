@@ -1,4 +1,5 @@
 <?php
+// Backoffice: formulário de edição de resultado.
 require_once 'auth.php';
 require_once 'db.php';
 require_login();
@@ -8,9 +9,11 @@ if ($id === 0) {
     die("ID inválido.");
 }
 
+// Carrega dados atuais do resultado.
 $res = $mysqli->query("SELECT * FROM resultados WHERE id = $id");
 $r = $res->fetch_assoc();
 
+// Normaliza o caminho das imagens.
 function resolve_result_image_path($path) {
     if (!$path) {
         return null;

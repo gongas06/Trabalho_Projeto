@@ -1,4 +1,5 @@
 <?php
+// Cabeçalho principal do backoffice ADPB.
 require_once __DIR__ . '/../auth.php';
 $showUsersLink = is_admin();
 ?>

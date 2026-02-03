@@ -1,9 +1,11 @@
 <?php
+// Backoffice: formulário de edição de jogo na agenda.
 require_once "auth.php";
 require_once "db.php";
 require_login();
 
 $id = intval($_GET['id']);
+// Carrega dados atuais do jogo.
 $res = $mysqli->query("SELECT * FROM agenda WHERE id = $id");
 $j = $res->fetch_assoc();
 

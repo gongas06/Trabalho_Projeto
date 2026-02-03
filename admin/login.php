@@ -1,9 +1,11 @@
 <?php
+// Página de login: valida credenciais e inicia sessão.
 require_once __DIR__ . '/db.php';
 session_start();
 
 $err = '';
 
+// Processa submissão do formulário.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $username = $_POST['username'] ?? '';

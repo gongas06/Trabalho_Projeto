@@ -1,4 +1,5 @@
 <?php
+// Backoffice: listagem e gestão da galeria (imagens/vídeos).
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/db.php';
 
@@ -79,6 +80,7 @@ if (!$result) {
                     $file_name = $row['imagem'] ?? '';
                     $file_rel = $file_name ? ('../uploads/' . $file_name) : '';
                     $file_abs = $file_name ? (__DIR__ . '/../uploads/' . $file_name) : '';
+                    // Detecta se o ficheiro é vídeo para renderizar corretamente.
                     $ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
                     $is_video = in_array($ext, ['mp4', 'webm', 'ogg'], true);
                     if ($file_rel && $file_abs && file_exists($file_abs)): ?>

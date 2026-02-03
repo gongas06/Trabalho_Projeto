@@ -1,4 +1,5 @@
 <?php
+// Backoffice: listagem de mensagens recebidas no formulário de contacto.
 require_once 'auth.php';
 require_once 'db.php';
 require_login();

@@ -1,4 +1,5 @@
 <?php
+// Handler para atualizar o role de um utilizador.
 require_once 'auth.php';
 require_once 'db.php';
 require_login();
@@ -33,6 +34,7 @@ if (!$user) {
     exit;
 }
 
+// Protege a conta principal.
 if ($user['username'] === 'admin' || $user['role'] === 'superadmin') {
     header('Location: users.php');
     exit;

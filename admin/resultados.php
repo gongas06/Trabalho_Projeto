@@ -1,4 +1,5 @@
 <?php
+// Backoffice: listagem e gestão de resultados.
 require_once 'auth.php';
 require_once 'db.php';
 require_login();
@@ -10,6 +11,7 @@ if (!$result) {
     die("Erro ao carregar resultados: " . $mysqli->error);
 }
 
+// Normaliza o caminho das imagens dos resultados.
 function resolve_result_image_path($path) {
     if (!$path) {
         return null;

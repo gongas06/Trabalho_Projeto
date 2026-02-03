@@ -1,4 +1,5 @@
 <?php
+// Página institucional com história do clube, linha do tempo e palmarés.
 session_start();
 ?>
 <!DOCTYPE html>
@@ -134,7 +135,6 @@ session_start();
   <script src="Menu.js"></script>
 </body>
 </html>
-
 
 
 

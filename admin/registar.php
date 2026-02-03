@@ -1,3 +1,4 @@
+<!-- Página pública de registo de utilizadores. -->
 <!doctype html>
 <html lang="pt">
 <head><meta charset="utf-8"><title>Registar | ADPB</title>
@@ -11,6 +12,7 @@
       <input name="password" type="password" required placeholder="Palavra-passe">
       <input name="password2" type="password" required placeholder="Confirmar palavra-passe">
       <button type="submit">Registar</button>
+      <!-- Mensagens de feedback do registo -->
       <?php if (isset($_GET['success'])): ?>
     <div class="alert-success">Conta criada com sucesso!</div>
 <?php endif; ?>

@@ -1,4 +1,5 @@
 <?php
+// Backoffice: elimina item da galeria e remove o ficheiro associado.
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/db.php';
 require_login();
@@ -14,6 +15,7 @@ if ($id <= 0) {
     exit;
 }
 
+// Remove ficheiro físico (se existir).
 $stmt = $mysqli->prepare('SELECT imagem FROM galeria WHERE id = ? LIMIT 1');
 if ($stmt) {
     $stmt->bind_param('i', $id);
@@ -28,6 +30,7 @@ if ($stmt) {
     }
 }
 
+// Remove registo da galeria.
 $del = $mysqli->prepare('DELETE FROM galeria WHERE id = ?');
 if ($del) {
     $del->bind_param('i', $id);

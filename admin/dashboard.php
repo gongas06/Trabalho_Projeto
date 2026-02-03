@@ -1,4 +1,5 @@
 <?php
+// Dashboard do backoffice com métricas e acessos rápidos.
 require_once 'auth.php';
 require_once 'db.php';
 require_login();
@@ -6,6 +7,7 @@ require_login();
 $isAdmin = is_admin();
 $isSuperAdmin = is_superadmin();
 
+// Métricas de conteúdo.
 $countGames = $mysqli->query(
     "SELECT COUNT(*) as c FROM resultados"
 )->fetch_assoc()['c'] ?? 0;
@@ -33,6 +35,7 @@ if ($mensagensCountResult) {
 $countUsers = 0;
 $usersResult = null;
 if ($isAdmin) {
+    // Apenas admins veem métricas e listagem de utilizadores.
     $countUsers = $mysqli->query(
         "SELECT COUNT(*) as c FROM utilizadores"
     )->fetch_assoc()['c'] ?? 0;

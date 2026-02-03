@@ -1,4 +1,5 @@
 <?php
+// Backoffice: edição de notícia existente.
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/db.php';
 
@@ -11,7 +12,7 @@ if (!is_admin()) {
 $id = (int)($_GET['id'] ?? 0);
 if ($id <= 0) { header('Location: news.php'); exit; }
 
-// buscar notícia
+// Buscar notícia atual.
 $stmt = $mysqli->prepare("SELECT * FROM noticias WHERE id = ?");
 $stmt->bind_param('i', $id);
 $stmt->execute();
@@ -21,6 +22,7 @@ if (!$news) { header('Location: news.php'); exit; }
 $msg = '';
 $err = '';
 
+// Processa atualização após submissão.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = trim($_POST['title'] ?? '');
     $body = trim($_POST['body'] ?? '');
@@ -34,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $image_name = $news['image'];
 
-        // upload nova imagem
+        // Upload de nova imagem (opcional).
         if (!empty($_FILES['image']['name'])) {
             $uploadDir = __DIR__ . '/../uploads/';
             if (!is_dir($uploadDir)) mkdir($uploadDir, 0755, true);

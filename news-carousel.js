@@ -1,3 +1,4 @@
+// Carrossel horizontal para a secção "Últimas Notícias".
 document.addEventListener("DOMContentLoaded", () => {
   const section = document.querySelector(".ultimas-noticias");
   if (!section) return;
@@ -9,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!grid || !prevBtn || !nextBtn || !moreLink) return;
 
+  // Define o passo de scroll com base na largura do cartão + gap.
   const getStep = () => {
     const card = grid.querySelector(".noticia-card");
     if (!card) return grid.clientWidth;
@@ -17,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return card.offsetWidth + (Number.isNaN(gap) ? 0 : gap);
   };
 
+  // Ativa/desativa setas e mostra o link "mais" quando chega ao fim.
   const updateButtons = () => {
     const maxScroll = grid.scrollWidth - grid.clientWidth;
     const atStart = grid.scrollLeft <= 2;

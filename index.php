@@ -1,4 +1,5 @@
 <?php
+// Página inicial: hero, destaques de resultados, próximo jogo e últimas notícias.
 session_start();
 require_once __DIR__ . '/admin/db.php';
 ?>
@@ -59,6 +60,7 @@ require_once __DIR__ . '/admin/db.php';
     <div class="container">
         <h2>Últimos Resultados</h2>
         <?php
+        // Últimos resultados para o carrossel.
         $res = $mysqli->query("SELECT * FROM resultados ORDER BY created_at DESC LIMIT 4");
         ?>
 
@@ -102,6 +104,7 @@ require_once __DIR__ . '/admin/db.php';
     <div class="container">
 
       <?php
+// Próximo jogo agendado (data/hora futura mais próxima).
 date_default_timezone_set('Europe/Lisbon');
 
 $proxSQL = "
@@ -148,6 +151,7 @@ $prox = $proxRes->fetch_assoc();
         <h2 class="titulo-sec">Últimas Notícias</h2>
 
         <?php
+        // Últimas notícias para o carrossel.
         $news = $mysqli->query("SELECT * FROM noticias ORDER BY created_at DESC LIMIT 4");
         ?>
 
@@ -181,6 +185,7 @@ $prox = $proxRes->fetch_assoc();
 </section>
 
 <?php if (!empty($_SESSION['role']) && in_array($_SESSION['role'], ['admin', 'superadmin'], true)): ?>
+<!-- Acesso rápido ao backoffice para administradores -->
 <div class="admin-actions">
     <a href="admin/dashboard.php" class="admin-btn">Dashboard</a>
 

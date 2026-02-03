@@ -1,3 +1,4 @@
+<!-- Página de patrocinadores oficiais (grelha de logotipos). -->
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>

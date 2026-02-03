@@ -1,4 +1,5 @@
 <?php
+// Página de resultados com filtros por época e competição.
 session_start();
 require_once "./admin/db.php";
 ?>
@@ -45,9 +46,11 @@ require_once "./admin/db.php";
 </header>
 
 <?php
+// Parâmetros de filtro.
 $epoca = $_GET['epoca'] ?? '';
 $competicao = $_GET['competicao'] ?? '';
 
+// Consulta dinâmica com filtros opcionais.
 $sql = "SELECT * FROM resultados WHERE 1=1";
 $params = [];
 $tipos = "";

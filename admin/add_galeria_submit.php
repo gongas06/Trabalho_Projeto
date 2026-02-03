@@ -1,4 +1,5 @@
 <?php
+// Handler para adicionar item à galeria (upload e inserção).
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/db.php';
 require_login();
@@ -8,6 +9,7 @@ if (!is_admin()) {
     die('Acesso negado. Apenas o administrador pode gerir a galeria.');
 }
 
+// Processa submissão do formulário.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $categoria = trim($_POST['categoria'] ?? 'comunidade');
 
@@ -15,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Ficheiro obrigatorio.');
     }
 
+    // Limite de tamanho do ficheiro.
     $max_size = 100 * 1024 * 1024;
     if (!empty($_FILES['imagem']['size']) && $_FILES['imagem']['size'] > $max_size) {
         die('O ficheiro excede o limite de 50MB.');
@@ -33,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Erro ao enviar imagem.');
     }
 
+    // Grava o registo da galeria.
     $stmt = $mysqli->prepare("INSERT INTO galeria (imagem, categoria) VALUES (?, ?)");
     if (!$stmt) {
         die('Erro prepare: ' . $mysqli->error);

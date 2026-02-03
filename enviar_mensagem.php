@@ -1,4 +1,5 @@
 <?php
+// Handler do formulário de contactos: valida e grava a mensagem.
 require_once __DIR__ . '/admin/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -10,11 +11,13 @@ $nome = trim($_POST['nome'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $mensagem = trim($_POST['mensagem'] ?? '');
 
+// Validação básica obrigatória.
 if ($nome === '' || $email === '' || $mensagem === '') {
     header('Location: contactos.php?erro=1');
     exit;
 }
 
+// Inserção da mensagem na base de dados.
 $stmt = $mysqli->prepare("
     INSERT INTO mensagens (nome, email, mensagem, created_at)
     VALUES (?, ?, ?, NOW())

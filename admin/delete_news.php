@@ -1,4 +1,5 @@
 <?php
+// Backoffice: elimina uma notícia e remove a imagem associada.
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/db.php';
 
@@ -13,7 +14,7 @@ if ($id <= 0) {
     header('Location: news.php'); exit;
 }
 
-// apagar imagem (se existir)
+// Apagar imagem (se existir).
 $r = $mysqli->prepare("SELECT image FROM noticias WHERE id = ?");
 $r->bind_param('i', $id);
 $r->execute();
@@ -23,7 +24,7 @@ if ($row && !empty($row['image'])) {
     if (file_exists($file)) @unlink($file);
 }
 
-// apagar registo
+// Apagar registo.
 $stmt = $mysqli->prepare("DELETE FROM noticias WHERE id = ?");
 $stmt->bind_param('i', $id);
 $stmt->execute();

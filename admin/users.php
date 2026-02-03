@@ -1,4 +1,5 @@
 <?php
+// Backoffice: gestão de utilizadores e permissões.
 require_once 'auth.php';
 require_once 'db.php';
 require_login();
@@ -83,6 +84,7 @@ if (!$result) {
                 <td><?= htmlspecialchars($row['criado_em'] ?? '') ?></td>
                 <td>
                     <?php if ($row['username'] === 'admin' || $row['role'] === 'superadmin'): ?>
+                        <!-- Conta protegida -->
                         <span style="color:#555;">Super admin</span>
                     <?php else: ?>
                         <form class="inline" action="update_user_role.php" method="post">

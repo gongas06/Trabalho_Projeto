@@ -1,3 +1,4 @@
+<!-- Página de política de privacidade e cookies. -->
 <!DOCTYPE html>
 <html lang="pt-PT">
 <head>

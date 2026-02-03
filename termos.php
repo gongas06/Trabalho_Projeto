@@ -1,3 +1,4 @@
+<!-- Página de termos e condições do site. -->
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -14,6 +15,7 @@
     <h1>Termos de Utilização</h1>
   </header>
 
+  <!-- Conteúdo legal dos termos -->
   <main class="termos-conteudo">
     <section>
       <h2>1. Termos</h2>

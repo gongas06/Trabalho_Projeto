@@ -1,4 +1,5 @@
 <?php
+// Backoffice: elimina utilizador (exceto conta protegida).
 require_once 'auth.php';
 require_once 'db.php';
 require_login();
@@ -31,6 +32,7 @@ if (!$user) {
     exit;
 }
 
+// Protege a conta principal.
 if ($user['username'] === 'admin' || $user['role'] === 'superadmin') {
     header('Location: users.php');
     exit;

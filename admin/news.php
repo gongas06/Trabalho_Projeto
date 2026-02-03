@@ -1,4 +1,5 @@
 <?php
+// Backoffice: listagem e gestão de notícias.
 require_once __DIR__ . '/auth.php';
 require_once __DIR__ . '/db.php';
 
@@ -116,4 +117,3 @@ if (!$result) {
 
 </body>
 </html>
-
