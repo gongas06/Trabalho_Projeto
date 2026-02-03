@@ -125,6 +125,11 @@
   filter: brightness(0.95);
 }
 
+.galeria-item:focus,
+.galeria-item:focus-visible {
+  outline: none;
+}
+
 .galeria-lightbox {
   position: fixed;
   inset: 0;
