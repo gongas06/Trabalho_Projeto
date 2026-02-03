@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die('Ficheiro obrigatorio.');
     }
 
-    $max_size = 50 * 1024 * 1024;
+    $max_size = 100 * 1024 * 1024;
     if (!empty($_FILES['imagem']['size']) && $_FILES['imagem']['size'] > $max_size) {
         die('O ficheiro excede o limite de 50MB.');
     }
