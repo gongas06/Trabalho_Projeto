@@ -138,6 +138,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1200;
+  outline: none;
 }
 
 .galeria-lightbox.ativo {
@@ -151,6 +152,11 @@
   object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  outline: none;
+}
+
+.galeria-lightbox button {
+  outline: none;
 }
 
 .galeria-lightbox video {
