@@ -89,7 +89,7 @@ $res = $stmt->get_result();
                 <label>Época</label>
                 <select name="epoca">
                     <option value="">Todas</option>
-                    <option value="2025/26" <?= $epoca=="2025/26"?"selected":"" ?>>2025/26</option>
+                    <option value="2025/2026" <?= $epoca=="2025/2026"?"selected":"" ?>>2025/2026</option>
                 </select>
             </div>
 
