@@ -79,8 +79,10 @@ session_start();
     <div class="contactos-form">
       <h2> Envia-nos uma mensagem</h2>
       <?php if (!empty($_GET['enviado'])): ?>
+        <!-- Feedback de sucesso vindo do handler -->
         <p style="color:#0a7a3b; font-weight:600; margin-bottom:12px;">Mensagem enviada com sucesso.</p>
       <?php elseif (!empty($_GET['erro'])): ?>
+        <!-- Feedback de erro vindo do handler -->
         <p style="color:#b00020; font-weight:600; margin-bottom:12px;">Erro ao enviar. Tenta novamente.</p>
       <?php endif; ?>
       <form action="enviar_mensagem.php" method="post">

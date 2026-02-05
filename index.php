@@ -1,6 +1,7 @@
 <?php
 // Página inicial: hero, destaques de resultados, próximo jogo e últimas notícias.
 session_start();
+// Ligação à base de dados para resultados, agenda e notícias.
 require_once __DIR__ . '/admin/db.php';
 ?>
 
@@ -33,11 +34,13 @@ require_once __DIR__ . '/admin/db.php';
       <li><a href="contactos.php">Contactos</a></li>
 
       <?php if(isset($_SESSION['username'])): ?>
+        <!-- Menu do utilizador autenticado -->
         <li class="user-info">
           <a href="Utilizador/perfil.php"><?= $_SESSION['username']; ?></a>
           <a href="admin/logout.php" class="logout-link">Sair</a>
         </li>
       <?php else: ?>
+        <!-- CTA de login para utilizadores não autenticados -->
         <li><a href="admin/login.php">Entrar</a></li>
       <?php endif; ?>
     </ul>

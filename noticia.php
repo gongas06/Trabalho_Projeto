@@ -1,5 +1,6 @@
 <?php
 // Página de detalhe de notícia (valida ID e carrega conteúdo).
+// Não exige sessão, apenas leitura pública.
 require_once __DIR__ . '/admin/db.php';
 
 $id = $_GET['id'] ?? null;
@@ -10,7 +11,7 @@ if (!$id || !is_numeric($id)) {
     exit;
 }
 
-// Consulta segura da notícia.
+// Consulta segura da notícia por ID.
 $stmt = $mysqli->prepare("SELECT * FROM noticias WHERE id = ?");
 $stmt->bind_param("i", $id);
 $stmt->execute();

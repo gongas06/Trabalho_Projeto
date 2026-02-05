@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!grid || !prevBtn || !nextBtn) return;
 
   const getStep = () => {
+    // Calcula o avanço do carrossel com base na largura do card + gap.
     const card = grid.querySelector(".resultado-card");
     if (!card) return grid.clientWidth;
     const styles = window.getComputedStyle(grid);

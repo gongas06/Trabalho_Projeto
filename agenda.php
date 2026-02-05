@@ -1,6 +1,7 @@
 <?php
 // Página de agenda com filtro por época e listagem de jogos futuros.
 session_start();
+// Ligação à base de dados para carregar a agenda.
 require_once __DIR__ . '/admin/db.php';
 ?>
 
@@ -42,6 +43,7 @@ require_once __DIR__ . '/admin/db.php';
     </header>
 <?php
 
+// Data atual (pode ser útil para filtros ou comparação).
 $hoje = date("Y-m-d");
 
 // Opções de época para o filtro.
@@ -50,7 +52,7 @@ $anos = $mysqli->query("SELECT DISTINCT epoca FROM agenda ORDER BY epoca DESC");
 // Época selecionada (fallback para a época atual).
 $epoca = isset($_GET['epoca']) ? $_GET['epoca'] : "2025/2026";
 
-// Jogos futuros da época escolhida.
+// Jogos futuros da época escolhida (ordem cronológica).
 $jogos = $mysqli->query("
     SELECT *
     FROM agenda
@@ -89,6 +91,7 @@ $jogos = $mysqli->query("
 <section class="agenda-lista">
 
 <?php if ($jogos->num_rows === 0): ?>
+    <!-- Estado vazio quando não há jogos futuros -->
     <p class="nenhum">Nenhum jogo futuro encontrado nesta época.</p>
 
 <?php else: ?>
@@ -130,4 +133,3 @@ $jogos = $mysqli->query("
 <script src="Menu.js"></script>
 </body>
 </html>
-

@@ -1,6 +1,7 @@
 <?php
 // Página de resultados com filtros por época e competição.
 session_start();
+// Ligação à base de dados para carregar resultados.
 require_once "./admin/db.php";
 ?>
 <!DOCTYPE html>
@@ -46,11 +47,11 @@ require_once "./admin/db.php";
 </header>
 
 <?php
-// Parâmetros de filtro.
+// Parâmetros de filtro vindos da query string.
 $epoca = $_GET['epoca'] ?? '';
 $competicao = $_GET['competicao'] ?? '';
 
-// Consulta dinâmica com filtros opcionais.
+// Consulta dinâmica com filtros opcionais (statement preparado).
 $sql = "SELECT * FROM resultados WHERE 1=1";
 $params = [];
 $tipos = "";
@@ -72,6 +73,7 @@ $sql .= " ORDER BY created_at DESC";
 $stmt = $mysqli->prepare($sql);
 
 if (!empty($params)) {
+    // Tipos e parâmetros apenas quando existem filtros ativos.
     $stmt->bind_param($tipos, ...$params);
 }
 
@@ -111,6 +113,7 @@ $res = $stmt->get_result();
 
         <div class="jogos-lista">
             <?php while ($r = $res->fetch_assoc()): ?>
+                <!-- Card por jogo com imagens das equipas e resultado -->
                 <div class="card">
                     <div class="equipas">
                         <img src="uploads/<?= htmlspecialchars($r['imagem_casa']) ?>">

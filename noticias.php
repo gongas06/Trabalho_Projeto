@@ -1,6 +1,7 @@
 <?php
 // Página de notícias: destaque + lista das últimas publicações.
 session_start();
+// Ligação à base de dados para carregar notícias.
 require_once "admin/db.php";
 
 // Notícia em destaque (flag destaque = 1).
