@@ -27,6 +27,12 @@ $countGaleria = $mysqli->query(
     "SELECT COUNT(*) as c FROM galeria"
 )->fetch_assoc()['c'] ?? 0;
 
+$countOrders = 0;
+$ordersResult = $mysqli->query("SELECT COUNT(*) as c FROM loja_encomendas");
+if ($ordersResult) {
+    $countOrders = $ordersResult->fetch_assoc()['c'] ?? 0;
+}
+
 $countMensagens = 0;
 $mensagensCountResult = $mysqli->query(
     "SELECT COUNT(*) as c FROM mensagens"
@@ -60,6 +66,8 @@ include 'includes/header.php';
             <a href="news.php">Gestão de Notícias</a>
             <a href="agenda.php">Gestão de Agenda</a>
             <a href="galeria.php">Gestão da Galeria</a>
+            <a href="loja_produtos.php">Gestão da Loja</a>
+            <a href="loja_encomendas.php">Encomendas</a>
             <a href="mensagens.php">Mensagens</a>
             <?php if ($isAdmin): ?>
                 <a href="users.php">Gestão de Utilizadores</a>
@@ -115,6 +123,16 @@ include 'includes/header.php';
                 </div>
                 <a href="galeria.php" class="admin-card-link">
                     Gerir Galeria
+                </a>
+            </article>
+
+            <article class="admin-card">
+                <div class="admin-card-title">Loja</div>
+                <div class="admin-card-metric">
+                    <?= (int)$countOrders; ?> encomendas
+                </div>
+                <a href="loja_encomendas.php" class="admin-card-link">
+                    Ver Encomendas
                 </a>
             </article>
 

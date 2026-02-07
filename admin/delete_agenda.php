@@ -5,7 +5,7 @@ require_once "db.php";
 require_login();
 if (!is_admin()) {
     http_response_code(403);
-    die("Acesso negado. Apenas o administrador pode gerir os resultados.");
+    die("Acesso negado. Apenas o administrador pode gerir a Agenda.");
 }
 
 $id = intval($_GET['id']);

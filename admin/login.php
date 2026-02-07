@@ -34,7 +34,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Sessão temporária só para mostrar o toast
                 $_SESSION['login_message'] = $row['username'];
 
-                header('Location: ../index.php');
+                if (!empty($_SESSION['redirect_after_login'])) {
+                    $dest = $_SESSION['redirect_after_login'];
+                    unset($_SESSION['redirect_after_login']);
+                    header('Location: ' . $dest);
+                } else {
+                    header('Location: ../index.php');
+                }
                 exit();
 
             } else {

@@ -149,6 +149,7 @@ $foto = !empty($user['foto']) ? $user['foto'] : 'default.png';
     </div>
 
     <a href="editar_perfil.php" class="botao-editar">Editar Perfil</a>
+    <a href="encomendas.php" class="botao-editar" style="background:#222; margin-top:10px;">Minhas Encomendas</a>
 
 </div>
 

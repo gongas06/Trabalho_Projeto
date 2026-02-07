@@ -32,6 +32,8 @@ require_once __DIR__ . '/admin/db.php';
       <li><a href="Equipa.php">Equipa</a></li>
       <li><a href="galeria.php">Galeria</a></li>
       <li><a href="contactos.php">Contactos</a></li>
+      <li><a href="loja.php">Loja</a></li>
+      <li><a href="carrinho.php">Carrinho</a></li>
 
       <?php if(isset($_SESSION['username'])): ?>
         <!-- Menu do utilizador autenticado -->
