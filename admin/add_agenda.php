@@ -2,6 +2,10 @@
 // Backoffice: formulário para adicionar jogo à agenda.
 require_once 'auth.php';
 require_login();
+if (!is_admin()) {
+    http_response_code(403);
+    die("Acesso negado. Apenas o administrador pode gerir a Agenda.");
+}
 ?>
 
 <!doctype html>

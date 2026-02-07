@@ -3,6 +3,10 @@
 require_once 'auth.php';
 require_once 'db.php';
 require_login();
+if (!is_admin()) {
+    http_response_code(403);
+    die("Acesso negado. Apenas o administrador pode gerir a Agenda.");
+}
 
 $sql = "SELECT * FROM agenda ORDER BY data_jogo DESC, hora_jogo DESC";
 $result = $mysqli->query($sql);
