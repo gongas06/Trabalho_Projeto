@@ -6,7 +6,7 @@ require_login();
 
 if (!is_admin()) {
     http_response_code(403);
-    die('Acesso negado. Apenas o administrador pode gerir utilizadores.');
+    die('Acesso negado. Apenas o administrador pode gerir os utilizadores.');
 }
 $isSuperAdmin = is_superadmin();
 
